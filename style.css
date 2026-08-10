@@ -753,3 +753,125 @@ footer a {
         height: 145px;
     }
 }
+/* =========================================================
+   XOXO — YATAY TAŞMA / SAYFA KAYMASI DÜZELTMESİ
+   ========================================================= */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Header ekranı aşmasın */
+header {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Logo taşmasın */
+.logo {
+    max-width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Menü ekranı aşmasın */
+.main-nav {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+
+/* Tüm ana içerikler ekranın içinde kalsın */
+main,
+.container,
+.hero,
+.about,
+.manga-section,
+.manhwa-section,
+.content-section,
+.profile-page {
+    width: 100%;
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Görseller ekranı büyütmesin */
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+/* Uzun yazılar sayfayı genişletmesin */
+p,
+h1,
+h2,
+h3,
+a {
+    overflow-wrap: break-word;
+}
+
+/* =========================================================
+   ANA SAYFA
+   ========================================================= */
+
+.hero,
+.about,
+.manga-section,
+.manhwa-section,
+.content-section {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* =========================================================
+   MOBİL / DAR EKRAN
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .logo {
+        font-size: 36px;
+        letter-spacing: 5px;
+    }
+
+    .main-nav {
+        gap: 14px;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+    }
+
+    .hero,
+    .about,
+    .manga-section,
+    .manhwa-section,
+    .content-section {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
