@@ -14,154 +14,167 @@ body {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
-/* =========================================================
+
+
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
-header {
+.site-header {
     padding: 25px;
-
     text-align: center;
-
     border-bottom: 1px solid #403943;
 }
 
-header h1 {
+.logo {
     margin: 0;
     color: #ed8fba;
     font-size: 36px;
+    font-weight: bold;
     letter-spacing: 4px;
 }
-nav {
+
+.main-nav {
     margin-top: 18px;
 }
 
-nav a {
+.main-nav a {
     color: #f5dce9;
-
     text-decoration: none;
-
     margin: 0 12px;
-
     font-size: 15px;
-
     transition: 0.2s;
 }
 
-nav a:hover {
+.main-nav a:hover {
     color: #ed8fba;
 }
 
 
-/* =========================================================
+/* =========================
    MAIN
-========================================================= */
+========================= */
 
 main {
     min-height: calc(100vh - 180px);
-
     padding: 40px 20px;
 }
 
 
-/* =========================================================
+/* =========================
    HOME
-========================================================= */
+========================= */
 
 .hero {
     width: 100%;
     max-width: 850px;
-
     margin: 80px auto;
-
     padding: 70px 30px;
-
     text-align: center;
-
     border: 1px solid #4b424c;
     border-radius: 30px;
-
     background: #29252b;
-
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
 }
 
 .hero-decoration {
     font-size: 28px;
-
     margin-bottom: 20px;
 }
 
-.hero h2 {
+.hero h1 {
     margin: 0;
-
     color: #ed8fba;
-
     font-size: 48px;
 }
 
 .hero p {
     color: #cfc5cd;
-
     font-size: 18px;
-
     margin: 20px 0 30px;
 }
 
-.coming-soon {
-    color: #ed8fba;
+.main-button {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 14px;
+    background: #ed8fba;
+    color: #211e23;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
 
-    font-size: 22px;
-
-    letter-spacing: 4px;
+.main-button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
 }
 
 
-/* =========================================================
+/* =========================
+   UPCOMING
+========================= */
+
+.upcoming {
+    width: 100%;
+    max-width: 850px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.upcoming h2 {
+    margin: 0 0 15px;
+    color: #ed8fba;
+    font-size: 32px;
+}
+
+.upcoming p {
+    color: #cfc5cd;
+    line-height: 1.7;
+}
+
+.angel-line {
+    margin-top: 25px;
+    color: #ed8fba;
+    font-size: 25px;
+    letter-spacing: 6px;
+}
+
+
+/* =========================
    COMING SOON PAGES
-========================================================= */
+========================= */
 
 .coming-page {
     min-height: calc(100vh - 180px);
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     text-align: center;
 }
 
 .coming-page .angel {
     font-size: 32px;
-
     margin-bottom: 20px;
 }
 
 .coming-page h2 {
     color: #ed8fba;
-
     font-size: 32px;
 }
 
 
-/* =========================================================
+/* =========================
    ABOUT
-========================================================= */
+========================= */
 
 .about {
     width: 100%;
     max-width: 700px;
-
     margin: 80px auto;
-
     padding: 50px 35px;
-
     text-align: center;
-
     background: #29252b;
-
     border: 1px solid #4b424c;
     border-radius: 28px;
 }
@@ -172,6 +185,7 @@ main {
 
 .about h2 {
     color: #ed8fba;
+    font-size: 34px;
 }
 
 .about p {
@@ -180,15 +194,13 @@ main {
 }
 
 
-/* =========================================================
+/* =========================
    PROFILE
-========================================================= */
+========================= */
 
 .profile-page {
     min-height: calc(100vh - 180px);
-
     display: flex;
-
     justify-content: center;
     align-items: center;
 }
@@ -199,7 +211,6 @@ main {
 
 .profile .angel {
     font-size: 40px;
-
     margin-bottom: 20px;
 }
 
@@ -208,18 +219,15 @@ main {
 }
 
 
-/* =========================================================
+/* =========================
    AUTH PAGE
-========================================================= */
+========================= */
 
 .auth-page {
     min-height: 100vh;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     padding: 40px 20px;
 
     background:
@@ -232,119 +240,89 @@ main {
 }
 
 
-/* =========================================================
+/* =========================
    AUTH BOX
-========================================================= */
+========================= */
 
 .auth-box {
     width: 100%;
     max-width: 430px;
-
     padding: 42px 32px;
-
     text-align: center;
-
     background: rgba(42, 37, 44, 0.96);
-
     border: 1px solid #4d444e;
-
     border-radius: 28px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 
-/* =========================================================
+/* =========================
    AUTH DECORATION
-========================================================= */
+========================= */
 
 .auth-box .angel-decoration {
     margin-bottom: 18px;
-
     color: #f5dce9;
-
     font-size: 30px;
-
     letter-spacing: 8px;
 }
 
 
-/* =========================================================
+/* =========================
    AUTH LOGO
-========================================================= */
+========================= */
 
 .auth-box h1 {
     margin: 0;
-
     color: #ed8fba;
-
     font-size: 34px;
-
     letter-spacing: 4px;
 }
 
 .auth-subtitle {
     margin: 10px 0 30px;
-
     color: #bfb4bd;
-
     font-size: 14px;
 }
 
 
-/* =========================================================
+/* =========================
    AUTH TITLE
-========================================================= */
+========================= */
 
 .auth-box h2 {
     margin: 0 0 24px;
-
     color: #f5dce9;
-
     font-size: 24px;
 }
 
 
-/* =========================================================
+/* =========================
    INPUT GROUP
-========================================================= */
+========================= */
 
 .input-group {
     margin-bottom: 15px;
-
     text-align: left;
 }
 
 .input-group label {
     display: block;
-
     margin-bottom: 7px;
-
     color: #cfc4cd;
-
     font-size: 13px;
 }
 
 .input-group input {
     width: 100%;
-
     padding: 14px 15px;
-
     border: 1px solid #5a505a;
-
     border-radius: 13px;
-
     outline: none;
-
     background: #211e23;
-
     color: #fff;
-
     font-family: Arial, sans-serif;
-
     font-size: 15px;
-
     transition: 0.2s;
 }
 
@@ -354,76 +332,53 @@ main {
 
 .input-group input:focus {
     border-color: #ed8fba;
-
-    box-shadow:
-        0 0 0 3px rgba(237, 143, 186, 0.12);
+    box-shadow: 0 0 0 3px rgba(237, 143, 186, 0.12);
 }
 
 
-/* =========================================================
+/* =========================
    AUTH BUTTON
-========================================================= */
+========================= */
 
 .auth-button {
     width: 100%;
-
     margin-top: 8px;
-
     padding: 14px;
-
     border: none;
-
     border-radius: 14px;
-
     background: #ed8fba;
-
     color: #211e23;
-
     font-family: Arial, sans-serif;
-
     font-size: 16px;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: 0.2s;
 }
 
 .auth-button:hover {
     transform: translateY(-1px);
-
     filter: brightness(1.05);
 }
 
 .auth-button:disabled {
     opacity: 0.6;
-
     cursor: not-allowed;
-
     transform: none;
 }
 
 
-/* =========================================================
+/* =========================
    FORGOT PASSWORD
-========================================================= */
+========================= */
 
 .forgot-button {
     margin-top: 15px;
-
     padding: 0;
-
     border: none;
-
     background: none;
-
     color: #bbaab5;
-
     font-family: Arial, sans-serif;
-
     font-size: 13px;
-
     cursor: pointer;
 }
 
@@ -433,40 +388,29 @@ main {
 
 .forgot-button:disabled {
     opacity: 0.6;
-
     cursor: not-allowed;
 }
 
 
-/* =========================================================
-   SWITCH LOGIN / REGISTER
-========================================================= */
+/* =========================
+   SWITCH
+========================= */
 
 .switch-text {
     margin: 22px 0 0;
-
     color: #aaa0a8;
-
     font-size: 14px;
 }
 
 .switch-button {
     margin-top: 8px;
-
     padding: 0;
-
     border: none;
-
     background: none;
-
     color: #ed8fba;
-
     font-family: Arial, sans-serif;
-
     font-size: 14px;
-
     font-weight: bold;
-
     cursor: pointer;
 }
 
@@ -475,17 +419,14 @@ main {
 }
 
 
-/* =========================================================
+/* =========================
    AUTH MESSAGE
-========================================================= */
+========================= */
 
 #message {
     min-height: 20px;
-
     margin: 18px 0 0;
-
     font-size: 14px;
-
     line-height: 1.5;
 }
 
@@ -498,80 +439,68 @@ main {
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
-footer {
+.site-footer {
     text-align: center;
-
     padding: 22px 15px;
-
     border-top: 1px solid #403943;
-
     color: #8f858e;
-
     font-size: 13px;
-
     background: #1e1b20;
+}
+
+.site-footer p {
+    margin: 0;
 }
 
 .auth-box footer {
     margin-top: 28px;
-
     padding: 0;
-
     border: none;
-
     background: transparent;
-
     color: #777078;
-
     font-size: 12px;
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media (max-width: 600px) {
 
-    header {
+    .site-header {
         padding: 20px 10px;
     }
 
-    header h1 {
+    .logo {
         font-size: 30px;
     }
 
-    nav {
+    .main-nav {
         margin-top: 14px;
     }
 
-    nav a {
+    .main-nav a {
         display: inline-block;
-
         margin: 6px 7px;
-
         font-size: 14px;
     }
-
 
     main {
         padding: 25px 14px;
     }
 
-
     .hero {
         margin: 40px auto;
-
         padding: 50px 20px;
-
         border-radius: 24px;
     }
 
-    .hero h2 {
+    .hero h1 {
         font-size: 36px;
     }
 
@@ -579,40 +508,37 @@ footer {
         font-size: 16px;
     }
 
+    .upcoming {
+        margin: 45px auto;
+    }
+
+    .upcoming h2 {
+        font-size: 28px;
+    }
 
     .about {
         margin: 40px auto;
-
         padding: 35px 20px;
-
         border-radius: 24px;
     }
-
 
     .coming-page {
         min-height: calc(100vh - 150px);
     }
 
-
-    /* AUTH TELEFON */
-
     .auth-page {
         min-height: 100vh;
-
         padding: 20px 14px;
     }
 
     .auth-box {
         max-width: 430px;
-
         padding: 35px 22px;
-
         border-radius: 24px;
     }
 
     .auth-box h1 {
         font-size: 29px;
-
         letter-spacing: 3px;
     }
 
@@ -622,7 +548,6 @@ footer {
 
     .auth-subtitle {
         font-size: 13px;
-
         line-height: 1.5;
     }
 
@@ -636,9 +561,9 @@ footer {
 }
 
 
-/* =========================================================
+/* =========================
    VERY SMALL PHONES
-========================================================= */
+========================= */
 
 @media (max-width: 380px) {
 
@@ -652,7 +577,6 @@ footer {
 
     .auth-box .angel-decoration {
         font-size: 26px;
-
         letter-spacing: 5px;
     }
 
@@ -660,7 +584,7 @@ footer {
         padding: 40px 16px;
     }
 
-    .hero h2 {
+    .hero h1 {
         font-size: 32px;
     }
 }
