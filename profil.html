@@ -8,15 +8,267 @@
     <title>Profil | XOXO Manga</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .profile-card {
+            width: 100%;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 45px 30px;
+            text-align: center;
+
+            background: rgba(41, 37, 43, 0.95);
+
+            border: 1px solid #4b424c;
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .profile-avatar-wrapper {
+            position: relative;
+
+            width: 130px;
+            height: 130px;
+
+            margin: 0 auto 25px;
+        }
+
+        .profile-avatar {
+            width: 130px;
+            height: 130px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 3px solid #ed8fba;
+
+            background: #211e23;
+
+            display: block;
+        }
+
+        .avatar-placeholder {
+            width: 130px;
+            height: 130px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #29252b;
+
+            border: 3px solid #ed8fba;
+
+            color: #ed8fba;
+
+            font-size: 45px;
+        }
+
+        .avatar-upload {
+            margin-top: 12px;
+
+            display: inline-block;
+
+            color: #ed8fba;
+
+            font-size: 13px;
+
+            cursor: pointer;
+        }
+
+        .avatar-upload:hover {
+            text-decoration: underline;
+        }
+
+        #avatarInput {
+            display: none;
+        }
+
+        .profile-card h2 {
+            margin: 10px 0 8px;
+
+            color: #ed8fba;
+
+            font-size: 28px;
+        }
+
+        .profile-email {
+            margin: 0 0 30px;
+
+            color: #bfb4bd;
+
+            font-size: 14px;
+        }
+
+        .profile-form {
+            text-align: left;
+
+            margin-top: 25px;
+        }
+
+        .profile-form label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #cfc4cd;
+
+            font-size: 13px;
+        }
+
+        .profile-form input {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #5a505a;
+
+            border-radius: 13px;
+
+            outline: none;
+
+            background: #211e23;
+
+            color: #fff;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+        }
+
+        .profile-form input:focus {
+            border-color: #ed8fba;
+
+            box-shadow:
+                0 0 0 3px rgba(237, 143, 186, 0.12);
+        }
+
+        .save-button {
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #ed8fba;
+
+            color: #211e23;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .save-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .save-button:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+        .remove-avatar-button {
+            margin-top: 12px;
+
+            padding: 0;
+
+            border: none;
+
+            background: none;
+
+            color: #bbaab5;
+
+            font-size: 13px;
+
+            cursor: pointer;
+        }
+
+        .remove-avatar-button:hover {
+            color: #f28fa8;
+        }
+
+        .logout-profile-button {
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 14px;
+
+            border: 1px solid #5a505a;
+
+            border-radius: 14px;
+
+            background: transparent;
+
+            color: #f5dce9;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .logout-profile-button:hover {
+            border-color: #ed8fba;
+
+            color: #ed8fba;
+        }
+
+        #profileMessage {
+            min-height: 20px;
+
+            margin-top: 18px;
+
+            font-size: 14px;
+        }
+
+        #profileMessage.success {
+            color: #8fe0b0;
+        }
+
+        #profileMessage.error {
+            color: #f28fa8;
+        }
+
+        @media (max-width: 600px) {
+
+            .profile-card {
+                margin: 25px auto;
+
+                padding: 35px 20px;
+
+                border-radius: 24px;
+            }
+
+        }
+    </style>
+
 </head>
 
+
 <body>
+
 
 <header class="site-header">
 
     <div class="logo">
         XOXO
     </div>
+
 
     <nav class="main-nav">
 
@@ -47,31 +299,120 @@
 
 <main class="profile-page">
 
-    <section class="profile">
+
+    <section class="profile-card">
+
 
         <div class="angel">
             ✦ 🪽 ✦
         </div>
 
-        <h2 id="username">
+
+        <!-- PROFİL FOTOĞRAFI -->
+
+        <div class="profile-avatar-wrapper">
+
+            <img
+                id="profileAvatar"
+                class="profile-avatar"
+                src=""
+                alt="Profil Fotoğrafı"
+                style="display: none;"
+            >
+
+            <div
+                id="avatarPlaceholder"
+                class="avatar-placeholder"
+            >
+                ♡
+            </div>
+
+        </div>
+
+
+        <label
+            for="avatarInput"
+            class="avatar-upload"
+        >
+            Profil fotoğrafı seç
+        </label>
+
+
+        <input
+            type="file"
+            id="avatarInput"
+            accept="image/png,image/jpeg,image/webp"
+        >
+
+
+        <button
+            id="removeAvatarButton"
+            class="remove-avatar-button"
+            type="button"
+            style="display: none;"
+        >
+            Profil fotoğrafını kaldır
+        </button>
+
+
+        <!-- KULLANICI -->
+
+        <h2 id="profileUsername">
             Yükleniyor...
         </h2>
 
-        <p id="userEmail">
+
+        <p
+            id="profileEmail"
+            class="profile-email"
+        >
             Yükleniyor...
         </p>
 
+
+        <!-- PROFİL DÜZENLE -->
+
+        <div class="profile-form">
+
+            <label for="usernameInput">
+                Kullanıcı Adı
+            </label>
+
+            <input
+                type="text"
+                id="usernameInput"
+                maxlength="30"
+                placeholder="Kullanıcı adın"
+            >
+
+
+            <button
+                id="saveProfileButton"
+                class="save-button"
+                type="button"
+            >
+                Profili Kaydet
+            </button>
+
+        </div>
+
+
+        <div id="profileMessage"></div>
+
+
+        <!-- ÇIKIŞ -->
+
         <button
             id="logoutButton"
-            class="auth-button"
+            class="logout-profile-button"
             type="button"
         >
             Çıkış Yap
         </button>
 
-        <p id="profileMessage"></p>
 
     </section>
+
 
 </main>
 
@@ -87,6 +428,7 @@
 
 <script type="module">
 
+
 import { createClient }
 from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
@@ -94,6 +436,7 @@ from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 /* =========================================================
    SUPABASE
 ========================================================= */
+
 
 const supabase = createClient(
 
@@ -108,22 +451,100 @@ const supabase = createClient(
    ELEMENTLER
 ========================================================= */
 
-const usernameElement =
-    document.getElementById("username");
 
-const emailElement =
-    document.getElementById("userEmail");
+const profileUsername =
+    document.getElementById("profileUsername");
+
+const profileEmail =
+    document.getElementById("profileEmail");
+
+const usernameInput =
+    document.getElementById("usernameInput");
+
+const saveProfileButton =
+    document.getElementById("saveProfileButton");
 
 const logoutButton =
     document.getElementById("logoutButton");
 
-const messageElement =
+const profileMessage =
     document.getElementById("profileMessage");
+
+const avatarInput =
+    document.getElementById("avatarInput");
+
+const profileAvatar =
+    document.getElementById("profileAvatar");
+
+const avatarPlaceholder =
+    document.getElementById("avatarPlaceholder");
+
+const removeAvatarButton =
+    document.getElementById("removeAvatarButton");
+
+
+let currentUser = null;
+
+
+/* =========================================================
+   MESAJ
+========================================================= */
+
+
+function showMessage(text, type = "") {
+
+    profileMessage.textContent = text;
+
+    profileMessage.className = "";
+
+    if (type) {
+
+        profileMessage.classList.add(type);
+
+    }
+
+}
+
+
+/* =========================================================
+   PROFİL FOTOĞRAFINI GÖSTER
+========================================================= */
+
+
+function displayAvatar(url) {
+
+    if (url) {
+
+        profileAvatar.src = url;
+
+        profileAvatar.style.display = "block";
+
+        avatarPlaceholder.style.display = "none";
+
+        removeAvatarButton.style.display =
+            "inline-block";
+
+    } else {
+
+        profileAvatar.src = "";
+
+        profileAvatar.style.display = "none";
+
+        avatarPlaceholder.style.display =
+            "flex";
+
+        removeAvatarButton.style.display =
+            "none";
+
+    }
+
+}
 
 
 /* =========================================================
    PROFİLİ YÜKLE
 ========================================================= */
+
 
 async function loadProfile() {
 
@@ -133,9 +554,7 @@ async function loadProfile() {
     } = await supabase.auth.getSession();
 
 
-    if (error) {
-
-        console.error(error);
+    if (error || !session) {
 
         window.location.href =
             "auth.html";
@@ -145,58 +564,448 @@ async function loadProfile() {
     }
 
 
-    /* GİRİŞ YAPILMAMIŞ */
+    currentUser = session.user;
 
-    if (!session) {
-
-        window.location.href =
-            "auth.html";
-
-        return;
-
-    }
-
-
-    const user =
-        session.user;
-
-
-    /* KULLANICI ADI */
 
     const username =
-        user.user_metadata?.username;
+        currentUser.user_metadata?.username
+        || "XOXO Kullanıcısı";
 
 
-    if (username) {
-
-        usernameElement.textContent =
-            username;
-
-    } else {
-
-        usernameElement.textContent =
-            "XOXO Kullanıcısı";
-
-    }
+    const avatarUrl =
+        currentUser.user_metadata?.avatar_url
+        || "";
 
 
-    /* E-POSTA */
+    profileUsername.textContent =
+        username;
 
-    emailElement.textContent =
-        user.email || "";
+
+    profileEmail.textContent =
+        currentUser.email || "";
+
+
+    usernameInput.value =
+        username === "XOXO Kullanıcısı"
+            ? ""
+            : username;
+
+
+    displayAvatar(avatarUrl);
 
 }
 
 
 /* =========================================================
-   ÇIKIŞ YAP
+   KULLANICI ADINI DEĞİŞTİR
 ========================================================= */
+
+
+saveProfileButton.addEventListener(
+    "click",
+    async () => {
+
+        const newUsername =
+            usernameInput.value.trim();
+
+
+        if (!newUsername) {
+
+            showMessage(
+                "Kullanıcı adı boş bırakılamaz.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (newUsername.length < 3) {
+
+            showMessage(
+                "Kullanıcı adı en az 3 karakter olmalı.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (newUsername.length > 30) {
+
+            showMessage(
+                "Kullanıcı adı en fazla 30 karakter olabilir.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        saveProfileButton.disabled = true;
+
+        saveProfileButton.textContent =
+            "Kaydediliyor...";
+
+
+        const { data, error } =
+            await supabase.auth.updateUser({
+
+                data: {
+
+                    username: newUsername
+
+                }
+
+            });
+
+
+        if (error) {
+
+            console.error(error);
+
+            showMessage(
+                "Kullanıcı adı güncellenemedi.",
+                "error"
+            );
+
+            saveProfileButton.disabled = false;
+
+            saveProfileButton.textContent =
+                "Profili Kaydet";
+
+            return;
+
+        }
+
+
+        currentUser = data.user;
+
+
+        profileUsername.textContent =
+            newUsername;
+
+
+        showMessage(
+            "Kullanıcı adın güncellendi! ♡",
+            "success"
+        );
+
+
+        saveProfileButton.disabled = false;
+
+        saveProfileButton.textContent =
+            "Profili Kaydet";
+
+    }
+);
+
+
+/* =========================================================
+   PROFİL FOTOĞRAFI YÜKLE
+========================================================= */
+
+
+avatarInput.addEventListener(
+    "change",
+    async () => {
+
+        const file =
+            avatarInput.files[0];
+
+
+        if (!file) return;
+
+
+        /* DOSYA TÜRÜ */
+
+        const allowedTypes = [
+
+            "image/jpeg",
+            "image/png",
+            "image/webp"
+
+        ];
+
+
+        if (!allowedTypes.includes(file.type)) {
+
+            showMessage(
+                "Sadece JPG, PNG veya WEBP yükleyebilirsin.",
+                "error"
+            );
+
+            avatarInput.value = "";
+
+            return;
+
+        }
+
+
+        /* DOSYA BOYUTU */
+
+        if (file.size > 5 * 1024 * 1024) {
+
+            showMessage(
+                "Profil fotoğrafı en fazla 5 MB olabilir.",
+                "error"
+            );
+
+            avatarInput.value = "";
+
+            return;
+
+        }
+
+
+        showMessage(
+            "Profil fotoğrafı yükleniyor..."
+        );
+
+
+        const fileExtension =
+            file.name
+            .split(".")
+            .pop()
+            .toLowerCase();
+
+
+        const filePath =
+            currentUser.id +
+            "/avatar." +
+            fileExtension;
+
+
+        /*
+            Önce eski avatarları
+            temizlemeye çalışıyoruz.
+        */
+
+
+        const { data: oldFiles } =
+            await supabase.storage
+                .from("avatars")
+                .list(currentUser.id);
+
+
+        if (oldFiles && oldFiles.length > 0) {
+
+            const oldPaths =
+                oldFiles.map(
+                    file =>
+                        currentUser.id +
+                        "/" +
+                        file.name
+                );
+
+
+            await supabase.storage
+                .from("avatars")
+                .remove(oldPaths);
+
+        }
+
+
+        /* UPLOAD */
+
+        const { error: uploadError } =
+            await supabase.storage
+                .from("avatars")
+                .upload(
+                    filePath,
+                    file,
+                    {
+                        upsert: true
+                    }
+                );
+
+
+        if (uploadError) {
+
+            console.error(uploadError);
+
+            showMessage(
+                "Fotoğraf yüklenemedi. Supabase Storage ayarlarını kontrol et.",
+                "error"
+            );
+
+            avatarInput.value = "";
+
+            return;
+
+        }
+
+
+        /* PUBLIC URL */
+
+        const {
+            data: publicData
+        } = supabase.storage
+            .from("avatars")
+            .getPublicUrl(filePath);
+
+
+        const avatarUrl =
+            publicData.publicUrl +
+            "?t=" +
+            Date.now();
+
+
+        /* USER METADATA */
+
+        const { data: updatedUser, error } =
+            await supabase.auth.updateUser({
+
+                data: {
+
+                    avatar_url: avatarUrl
+
+                }
+
+            });
+
+
+        if (error) {
+
+            console.error(error);
+
+            showMessage(
+                "Fotoğraf kaydedilemedi.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        currentUser =
+            updatedUser.user;
+
+
+        displayAvatar(avatarUrl);
+
+
+        showMessage(
+            "Profil fotoğrafın güncellendi! ♡",
+            "success"
+        );
+
+
+        avatarInput.value = "";
+
+    }
+);
+
+
+/* =========================================================
+   PROFİL FOTOĞRAFINI KALDIR
+========================================================= */
+
+
+removeAvatarButton.addEventListener(
+    "click",
+    async () => {
+
+        if (!currentUser) return;
+
+
+        removeAvatarButton.disabled =
+            true;
+
+
+        showMessage(
+            "Fotoğraf kaldırılıyor..."
+        );
+
+
+        const { data: files } =
+            await supabase.storage
+                .from("avatars")
+                .list(currentUser.id);
+
+
+        if (files && files.length > 0) {
+
+            const paths =
+                files.map(
+                    file =>
+                        currentUser.id +
+                        "/" +
+                        file.name
+                );
+
+
+            await supabase.storage
+                .from("avatars")
+                .remove(paths);
+
+        }
+
+
+        const { data: updatedUser, error } =
+            await supabase.auth.updateUser({
+
+                data: {
+
+                    avatar_url: null
+
+                }
+
+            });
+
+
+        if (error) {
+
+            console.error(error);
+
+            showMessage(
+                "Fotoğraf kaldırılamadı.",
+                "error"
+            );
+
+            removeAvatarButton.disabled =
+                false;
+
+            return;
+
+        }
+
+
+        currentUser =
+            updatedUser.user;
+
+
+        displayAvatar("");
+
+
+        showMessage(
+            "Profil fotoğrafı kaldırıldı.",
+            "success"
+        );
+
+
+        removeAvatarButton.disabled =
+            false;
+
+    }
+);
+
+
+/* =========================================================
+   ÇIKIŞ
+========================================================= */
+
 
 logoutButton.addEventListener(
     "click",
     async () => {
 
-        logoutButton.disabled = true;
+        logoutButton.disabled =
+            true;
 
         logoutButton.textContent =
             "Çıkış yapılıyor...";
@@ -210,14 +1019,13 @@ logoutButton.addEventListener(
 
             console.error(error);
 
-            messageElement.textContent =
-                "Çıkış yapılırken bir hata oluştu.";
+            showMessage(
+                "Çıkış yapılırken hata oluştu.",
+                "error"
+            );
 
-            messageElement.className =
-                "error";
-
-
-            logoutButton.disabled = false;
+            logoutButton.disabled =
+                false;
 
             logoutButton.textContent =
                 "Çıkış Yap";
@@ -238,9 +1046,12 @@ logoutButton.addEventListener(
    BAŞLAT
 ========================================================= */
 
+
 loadProfile();
 
+
 </script>
+
 
 </body>
 </html>
