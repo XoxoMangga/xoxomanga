@@ -22,7 +22,7 @@ body {
             rgba(25, 21, 27, 0.68),
             rgba(25, 21, 27, 0.78)
         ),
-        url("background.jpg") center center / cover fixed no-repeat;
+        url("bg.jpg") center center / cover fixed no-repeat;
 
     overflow-x: hidden;
 }
@@ -686,3 +686,189 @@ footer {
         height: 130px;
     }
 }
+/* =========================================================
+   XOXO MANGA - NORMAL SAYFALARIN SON DÜZENLEMESİ
+   PROFİL SAYFASINA DOKUNMAZ
+========================================================= */
+
+/* Ana sayfa karşılama alanı */
+.hero {
+    width: 100%;
+    max-width: 1080px;
+    margin: 80px auto 70px;
+    padding: 65px 50px;
+
+    text-align: center;
+
+    /* Koyu kart yerine arka plandaki gri/fotoğraflı görünüm */
+    background: rgba(95, 89, 94, 0.48);
+
+    border: 1px solid rgba(236, 135, 183, 0.18);
+    border-radius: 30px;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.22);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+/* XOXO Manga başlığı */
+.hero h1,
+.hero h2 {
+    color: #ec87b7 !important;
+}
+
+/* Açıklama yazısı */
+.hero p {
+    color: #f4edf4 !important;
+}
+
+/* Mangalara Keşfet - MOR LINK OLMASIN */
+.hero a,
+.hero a:visited {
+    display: inline-block;
+
+    color: #211c22 !important;
+    background: #ec87b7 !important;
+
+    padding: 13px 25px;
+    border-radius: 13px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none !important;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.hero a:hover {
+    color: #211c22 !important;
+    background: #f3a0c6 !important;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MANGA / MANHWA / HAKKIMIZDA
+========================================================= */
+
+.content-card {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto 55px;
+
+    padding: 50px 60px;
+
+    /* Ana sayfadaki gri/fotoğraflı görünüm */
+    background: rgba(95, 89, 94, 0.48);
+
+    border: 1px solid rgba(236, 135, 183, 0.18);
+    border-radius: 30px;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.22);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+/* Normal sayfa başlıkları */
+.content-card h1,
+.content-card h2,
+.content-card h3,
+.content-card h4 {
+    color: #ec87b7 !important;
+}
+
+/* Normal sayfa yazıları */
+.content-card p {
+    color: #f4edf4 !important;
+}
+
+/* Normal sayfalardaki linkler */
+.content-card a {
+    color: #ec87b7 !important;
+    text-decoration: none !important;
+}
+
+.content-card a:hover {
+    color: #ffadd0 !important;
+}
+
+
+/* Eğer içerikte buton olarak kullanılan link varsa */
+.content-card a.button,
+.content-card .button {
+    display: inline-block;
+
+    color: #211c22 !important;
+    background: #ec87b7 !important;
+
+    padding: 13px 25px;
+    border-radius: 13px;
+
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+.content-card a.button:hover,
+.content-card .button:hover {
+    color: #211c22 !important;
+    background: #f3a0c6 !important;
+}
+
+
+/* =========================================================
+   YAKINDA BÖLÜMÜ
+========================================================= */
+
+#yakinda,
+.yakinda,
+.coming-soon {
+    max-width: 1080px;
+    margin: 0 auto 50px;
+
+    padding: 35px 45px;
+
+    background: rgba(95, 89, 94, 0.48);
+
+    border: 1px solid rgba(236, 135, 183, 0.15);
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+#yakinda h2,
+.yakinda h2,
+.coming-soon h2 {
+    color: #ec87b7 !important;
+}
+
+#yakinda p,
+.yakinda p,
+.coming-soon p {
+    color: #f4edf4 !important;
+}
+
+
+/* =========================================================
+   ÖNEMLİ:
+   PROFİL SAYFASINA HİÇBİR ŞEY UYGULAMA
+========================================================= */
+
+/*
+   .profile-card
+   .profile-avatar
+   #profile-image
+   .profile-info
+
+   yukarıdaki mevcut kodların olduğu gibi kalacak.
+*/
