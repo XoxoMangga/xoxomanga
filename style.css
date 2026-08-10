@@ -872,3 +872,26 @@ footer {
 
    yukarıdaki mevcut kodların olduğu gibi kalacak.
 */
+/* =========================================================
+   MANGA / MANHWA / HAKKIMIZDA KUTULARI
+   SADECE BU SAYFALARA UYGULANIR
+========================================================= */
+
+.manga-page .content-card,
+.manhwa-page .content-card,
+.about-page .content-card,
+.manga-page main > section,
+.manhwa-page main > section,
+.about-page main > section {
+    max-width: 1080px;
+    margin: 55px auto;
+    padding: 55px 60px;
+
+    background: rgba(31, 26, 33, 0.88);
+    border: 1px solid rgba(236, 135, 183, 0.20);
+    border-radius: 30px;
+
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+
+    text-align: center;
+}
