@@ -2,23 +2,15 @@
 <html lang="tr">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Profil | XOXO</title>
+    <title>Profil | XOXO Manga</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
-
 <body>
-
 
 <header class="site-header">
 
@@ -44,8 +36,8 @@
             Hakkımızda
         </a>
 
-        <a href="auth.html" id="authNavLink">
-            Giriş Yap
+        <a href="profil.html" id="authNavLink">
+            Profil
         </a>
 
     </nav>
@@ -53,33 +45,31 @@
 </header>
 
 
-<main>
+<main class="profile-page">
 
-    <section class="profile-page">
+    <section class="profile">
 
-        <div class="profile">
-
-            <div class="angel">
-                ✦ 🪽 ✦
-            </div>
-
-            <h2>
-                Profil
-            </h2>
-
-            <p id="userEmail">
-                Yükleniyor...
-            </p>
-
-            <button
-                id="logoutButton"
-                class="auth-button"
-                type="button"
-            >
-                Çıkış Yap
-            </button>
-
+        <div class="angel">
+            ✦ 🪽 ✦
         </div>
+
+        <h2 id="username">
+            Yükleniyor...
+        </h2>
+
+        <p id="userEmail">
+            Yükleniyor...
+        </p>
+
+        <button
+            id="logoutButton"
+            class="auth-button"
+            type="button"
+        >
+            Çıkış Yap
+        </button>
+
+        <p id="profileMessage"></p>
 
     </section>
 
@@ -101,6 +91,10 @@ import { createClient }
 from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
+/* =========================================================
+   SUPABASE
+========================================================= */
+
 const supabase = createClient(
 
     "https://gldvzlfuupettcauexfy.supabase.co",
@@ -110,44 +104,93 @@ const supabase = createClient(
 );
 
 
-const authNavLink =
-    document.getElementById("authNavLink");
+/* =========================================================
+   ELEMENTLER
+========================================================= */
 
-const userEmail =
+const usernameElement =
+    document.getElementById("username");
+
+const emailElement =
     document.getElementById("userEmail");
 
 const logoutButton =
     document.getElementById("logoutButton");
 
+const messageElement =
+    document.getElementById("profileMessage");
+
+
+/* =========================================================
+   PROFİLİ YÜKLE
+========================================================= */
 
 async function loadProfile() {
 
     const {
-        data: { session }
+        data: { session },
+        error
     } = await supabase.auth.getSession();
 
 
-    if (!session) {
+    if (error) {
 
-        window.location.href = "auth.html";
+        console.error(error);
+
+        window.location.href =
+            "auth.html";
 
         return;
 
     }
 
 
-    userEmail.textContent =
-        session.user.email;
+    /* GİRİŞ YAPILMAMIŞ */
+
+    if (!session) {
+
+        window.location.href =
+            "auth.html";
+
+        return;
+
+    }
 
 
-    authNavLink.textContent =
-        "Profil";
+    const user =
+        session.user;
 
-    authNavLink.href =
-        "profil.html";
+
+    /* KULLANICI ADI */
+
+    const username =
+        user.user_metadata?.username;
+
+
+    if (username) {
+
+        usernameElement.textContent =
+            username;
+
+    } else {
+
+        usernameElement.textContent =
+            "XOXO Kullanıcısı";
+
+    }
+
+
+    /* E-POSTA */
+
+    emailElement.textContent =
+        user.email || "";
 
 }
 
+
+/* =========================================================
+   ÇIKIŞ YAP
+========================================================= */
 
 logoutButton.addEventListener(
     "click",
@@ -167,6 +210,13 @@ logoutButton.addEventListener(
 
             console.error(error);
 
+            messageElement.textContent =
+                "Çıkış yapılırken bir hata oluştu.";
+
+            messageElement.className =
+                "error";
+
+
             logoutButton.disabled = false;
 
             logoutButton.textContent =
@@ -184,10 +234,13 @@ logoutButton.addEventListener(
 );
 
 
+/* =========================================================
+   BAŞLAT
+========================================================= */
+
 loadProfile();
 
 </script>
-
 
 </body>
 </html>
