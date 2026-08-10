@@ -9,12 +9,23 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    background: #1e1b20;
+
+    background:
+        linear-gradient(
+            rgba(30, 27, 32, 0.68),
+            rgba(30, 27, 32, 0.82)
+        ),
+        url("bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
     color: #f8eaf2;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
-
 
 /* =========================
    HEADER
