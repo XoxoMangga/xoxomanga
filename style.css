@@ -12,474 +12,881 @@ body {
 
     background:
         linear-gradient(
-            rgba(30, 27, 32, 0.68),
-            rgba(30, 27, 32, 0.82)
+            rgba(30, 27, 32, 0.78),
+            rgba(30, 27, 32, 0.88)
         ),
-        url("bg.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+        url("bg.jpg") center / cover fixed no-repeat;
 
     color: #f8eaf2;
+
     font-family: Arial, sans-serif;
+
     overflow-x: hidden;
 }
 
-/* =========================
+
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .site-header {
     padding: 25px;
+
     text-align: center;
+
     border-bottom: 1px solid #403943;
+
+    background: rgba(30, 27, 32, 0.45);
+
+    backdrop-filter: blur(8px);
 }
+
 
 .logo {
     margin: 0;
+
     color: #ed8fba;
+
     font-size: 36px;
+
     font-weight: bold;
+
     letter-spacing: 4px;
 }
+
 
 .main-nav {
     margin-top: 18px;
 }
 
+
 .main-nav a {
     color: #f5dce9;
+
     text-decoration: none;
+
     margin: 0 12px;
+
     font-size: 15px;
+
     transition: 0.2s;
 }
+
 
 .main-nav a:hover {
     color: #ed8fba;
 }
 
 
-/* =========================
+/* =========================================================
    MAIN
-========================= */
+========================================================= */
 
 main {
     min-height: calc(100vh - 180px);
+
     padding: 40px 20px;
 }
 
 
-/* =========================
+/* =========================================================
    HOME
-========================= */
+========================================================= */
 
 .hero {
     width: 100%;
+
     max-width: 850px;
+
     margin: 80px auto;
+
     padding: 70px 30px;
+
     text-align: center;
+
     border: 1px solid #4b424c;
+
     border-radius: 30px;
-    background: #29252b;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+
+    background:
+        rgba(41, 37, 43, 0.90);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
 }
+
 
 .hero-decoration {
     font-size: 28px;
+
     margin-bottom: 20px;
 }
 
-.hero h1 {
+
+.hero h1,
+.hero h2 {
     margin: 0;
+
     color: #ed8fba;
+
     font-size: 48px;
 }
 
+
 .hero p {
     color: #cfc5cd;
+
     font-size: 18px;
+
     margin: 20px 0 30px;
 }
 
+
 .main-button {
     display: inline-block;
-    padding: 13px 24px;
+
+    padding: 14px 28px;
+
     border-radius: 14px;
+
     background: #ed8fba;
+
     color: #211e23;
+
     text-decoration: none;
+
+    font-size: 15px;
+
     font-weight: bold;
+
     transition: 0.2s;
 }
 
+
 .main-button:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+
     filter: brightness(1.05);
 }
 
 
-/* =========================
+/* =========================================================
    UPCOMING
-========================= */
+========================================================= */
 
 .upcoming {
     width: 100%;
-    max-width: 850px;
+
+    max-width: 700px;
+
     margin: 60px auto;
+
+    padding: 45px 30px;
+
     text-align: center;
+
+    border: 1px solid #4b424c;
+
+    border-radius: 28px;
+
+    background: rgba(41, 37, 43, 0.88);
 }
+
 
 .upcoming h2 {
     margin: 0 0 15px;
+
     color: #ed8fba;
-    font-size: 32px;
+
+    font-size: 30px;
 }
+
 
 .upcoming p {
     color: #cfc5cd;
+
     line-height: 1.7;
 }
 
+
 .angel-line {
     margin-top: 25px;
-    color: #ed8fba;
+
+    color: #f5dce9;
+
     font-size: 25px;
-    letter-spacing: 6px;
+
+    letter-spacing: 8px;
 }
 
 
-/* =========================
-   COMING SOON PAGES
-========================= */
+/* =========================================================
+   COMING SOON
+========================================================= */
 
 .coming-page {
     min-height: calc(100vh - 180px);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     text-align: center;
 }
+
 
 .coming-page .angel {
     font-size: 32px;
+
     margin-bottom: 20px;
 }
 
+
 .coming-page h2 {
     color: #ed8fba;
+
     font-size: 32px;
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about {
     width: 100%;
+
     max-width: 700px;
+
     margin: 80px auto;
+
     padding: 50px 35px;
+
     text-align: center;
-    background: #29252b;
+
+    background: rgba(41, 37, 43, 0.92);
+
     border: 1px solid #4b424c;
+
     border-radius: 28px;
 }
+
 
 .about .angel {
     font-size: 30px;
 }
 
+
 .about h2 {
     color: #ed8fba;
-    font-size: 34px;
 }
+
 
 .about p {
     color: #cfc5cd;
+
     line-height: 1.8;
 }
 
 
-/* =========================
-   PROFILE
-========================= */
+/* =========================================================
+   PROFILE PAGE
+========================================================= */
 
 .profile-page {
     min-height: calc(100vh - 180px);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
+    padding: 50px 20px;
 }
 
-.profile {
+
+.profile-card {
+    width: 100%;
+
+    max-width: 520px;
+
+    padding: 45px 35px;
+
     text-align: center;
+
+    background: rgba(41, 37, 43, 0.96);
+
+    border: 1px solid #4b424c;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
-.profile .angel {
-    font-size: 40px;
-    margin-bottom: 20px;
+
+.profile-decoration {
+    margin-bottom: 18px;
+
+    color: #f5dce9;
+
+    font-size: 30px;
+
+    letter-spacing: 8px;
 }
 
-.profile h2 {
+
+.profile-card h1 {
+    margin: 0 0 28px;
+
     color: #ed8fba;
+
+    font-size: 34px;
+
+    letter-spacing: 2px;
 }
 
 
-/* =========================
+/* =========================================================
+   PROFILE AVATAR
+========================================================= */
+
+.avatar-wrapper {
+    width: 170px;
+
+    height: 170px;
+
+    margin: 0 auto 22px;
+
+    border: 2px dashed #ed8fba;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #211e23;
+}
+
+
+.profile-avatar {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+
+.avatar-placeholder {
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ed8fba;
+
+    font-size: 58px;
+}
+
+
+/* =========================================================
+   PROFILE INFO
+========================================================= */
+
+.profile-info {
+    margin-top: 28px;
+}
+
+
+.profile-info h2 {
+    margin: 0 0 8px;
+
+    color: #f5dce9;
+
+    font-size: 24px;
+}
+
+
+.profile-info p {
+    margin: 6px 0;
+
+    color: #bfb4bd;
+
+    font-size: 14px;
+}
+
+
+.member-text {
+    margin-top: 14px !important;
+
+    color: #ed8fba !important;
+}
+
+
+/* =========================================================
+   PROFILE BUTTON
+========================================================= */
+
+.profile-button {
+    padding: 13px 24px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #ed8fba;
+
+    color: #211e23;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.profile-button:hover {
+    transform: translateY(-1px);
+
+    filter: brightness(1.05);
+}
+
+
+.profile-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   AVATAR MESSAGE
+========================================================= */
+
+#avatar-message {
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+}
+
+
+#avatar-message.success {
+    color: #8fe0b0;
+}
+
+
+#avatar-message.error {
+    color: #f28fa8;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-button {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 13px;
+
+    border: 1px solid #5a505a;
+
+    border-radius: 14px;
+
+    background: transparent;
+
+    color: #f5dce9;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.logout-button:hover {
+    border-color: #ed8fba;
+
+    color: #ed8fba;
+
+    background: rgba(237, 143, 186, 0.05);
+}
+
+
+.logout-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
    AUTH PAGE
-========================= */
+========================================================= */
 
 .auth-page {
     min-height: 100vh;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 40px 20px;
 
     background:
         radial-gradient(
             circle at top,
-            #342d36 0%,
-            #211e23 45%,
-            #171519 100%
+            rgba(52, 45, 54, 0.94) 0%,
+            rgba(33, 30, 35, 0.96) 45%,
+            rgba(23, 21, 25, 0.98) 100%
         );
 }
 
 
-/* =========================
+/* =========================================================
    AUTH BOX
-========================= */
+========================================================= */
 
 .auth-box {
     width: 100%;
+
     max-width: 430px;
+
     padding: 42px 32px;
+
     text-align: center;
+
     background: rgba(42, 37, 44, 0.96);
+
     border: 1px solid #4d444e;
+
     border-radius: 28px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 
-/* =========================
+/* =========================================================
    AUTH DECORATION
-========================= */
+========================================================= */
 
 .auth-box .angel-decoration {
     margin-bottom: 18px;
+
     color: #f5dce9;
+
     font-size: 30px;
+
     letter-spacing: 8px;
 }
 
 
-/* =========================
+/* =========================================================
    AUTH LOGO
-========================= */
+========================================================= */
 
 .auth-box h1 {
     margin: 0;
+
     color: #ed8fba;
+
     font-size: 34px;
+
     letter-spacing: 4px;
 }
 
+
 .auth-subtitle {
     margin: 10px 0 30px;
+
     color: #bfb4bd;
+
     font-size: 14px;
 }
 
 
-/* =========================
+/* =========================================================
    AUTH TITLE
-========================= */
+========================================================= */
 
 .auth-box h2 {
     margin: 0 0 24px;
+
     color: #f5dce9;
+
     font-size: 24px;
 }
 
 
-/* =========================
-   INPUT GROUP
-========================= */
+/* =========================================================
+   INPUT
+========================================================= */
 
 .input-group {
     margin-bottom: 15px;
+
     text-align: left;
 }
 
+
 .input-group label {
     display: block;
+
     margin-bottom: 7px;
+
     color: #cfc4cd;
+
     font-size: 13px;
 }
 
+
 .input-group input {
     width: 100%;
+
     padding: 14px 15px;
+
     border: 1px solid #5a505a;
+
     border-radius: 13px;
+
     outline: none;
+
     background: #211e23;
+
     color: #fff;
+
     font-family: Arial, sans-serif;
+
     font-size: 15px;
+
     transition: 0.2s;
 }
+
 
 .input-group input::placeholder {
     color: #817780;
 }
 
+
 .input-group input:focus {
     border-color: #ed8fba;
-    box-shadow: 0 0 0 3px rgba(237, 143, 186, 0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(237, 143, 186, 0.12);
 }
 
 
-/* =========================
+/* =========================================================
    AUTH BUTTON
-========================= */
+========================================================= */
 
 .auth-button {
     width: 100%;
+
     margin-top: 8px;
+
     padding: 14px;
+
     border: none;
+
     border-radius: 14px;
+
     background: #ed8fba;
+
     color: #211e23;
+
     font-family: Arial, sans-serif;
+
     font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
+
     transition: 0.2s;
 }
 
+
 .auth-button:hover {
     transform: translateY(-1px);
+
     filter: brightness(1.05);
 }
 
+
 .auth-button:disabled {
     opacity: 0.6;
+
     cursor: not-allowed;
+
     transform: none;
 }
 
 
-/* =========================
+/* =========================================================
    FORGOT PASSWORD
-========================= */
+========================================================= */
 
 .forgot-button {
     margin-top: 15px;
+
     padding: 0;
+
     border: none;
+
     background: none;
+
     color: #bbaab5;
+
     font-family: Arial, sans-serif;
+
     font-size: 13px;
+
     cursor: pointer;
 }
+
 
 .forgot-button:hover {
     color: #ed8fba;
 }
 
+
 .forgot-button:disabled {
     opacity: 0.6;
+
     cursor: not-allowed;
 }
 
 
-/* =========================
-   SWITCH
-========================= */
+/* =========================================================
+   LOGIN / REGISTER SWITCH
+========================================================= */
 
 .switch-text {
     margin: 22px 0 0;
+
     color: #aaa0a8;
+
     font-size: 14px;
 }
 
+
 .switch-button {
     margin-top: 8px;
+
     padding: 0;
+
     border: none;
+
     background: none;
+
     color: #ed8fba;
+
     font-family: Arial, sans-serif;
+
     font-size: 14px;
+
     font-weight: bold;
+
     cursor: pointer;
 }
+
 
 .switch-button:hover {
     text-decoration: underline;
 }
 
 
-/* =========================
+/* =========================================================
    AUTH MESSAGE
-========================= */
+========================================================= */
 
 #message {
     min-height: 20px;
+
     margin: 18px 0 0;
+
     font-size: 14px;
+
     line-height: 1.5;
 }
+
 
 #message.success {
     color: #8fe0b0;
 }
+
 
 #message.error {
     color: #f28fa8;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
-.site-footer {
+.site-footer,
+footer {
     text-align: center;
+
     padding: 22px 15px;
+
     border-top: 1px solid #403943;
+
     color: #8f858e;
+
     font-size: 13px;
-    background: #1e1b20;
+
+    background: rgba(30, 27, 32, 0.75);
 }
 
-.site-footer p {
-    margin: 0;
-}
 
 .auth-box footer {
     margin-top: 28px;
+
     padding: 0;
+
     border: none;
+
     background: transparent;
+
     color: #777078;
+
     font-size: 12px;
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -487,94 +894,144 @@ main {
         padding: 20px 10px;
     }
 
+
     .logo {
         font-size: 30px;
     }
+
 
     .main-nav {
         margin-top: 14px;
     }
 
+
     .main-nav a {
         display: inline-block;
+
         margin: 6px 7px;
+
         font-size: 14px;
     }
+
 
     main {
         padding: 25px 14px;
     }
 
+
     .hero {
         margin: 40px auto;
+
         padding: 50px 20px;
+
         border-radius: 24px;
     }
 
-    .hero h1 {
+
+    .hero h1,
+    .hero h2 {
         font-size: 36px;
     }
+
 
     .hero p {
         font-size: 16px;
     }
 
+
     .upcoming {
-        margin: 45px auto;
+        padding: 35px 20px;
     }
 
-    .upcoming h2 {
-        font-size: 28px;
-    }
 
     .about {
         margin: 40px auto;
+
         padding: 35px 20px;
+
         border-radius: 24px;
     }
 
-    .coming-page {
-        min-height: calc(100vh - 150px);
+
+    .profile-page {
+        padding: 35px 14px;
     }
+
+
+    .profile-card {
+        padding: 35px 22px;
+
+        border-radius: 25px;
+    }
+
+
+    .profile-card h1 {
+        font-size: 29px;
+    }
+
+
+    .avatar-wrapper {
+        width: 145px;
+
+        height: 145px;
+    }
+
+
+    .avatar-placeholder {
+        font-size: 48px;
+    }
+
 
     .auth-page {
         min-height: 100vh;
+
         padding: 20px 14px;
     }
 
+
     .auth-box {
         max-width: 430px;
+
         padding: 35px 22px;
+
         border-radius: 24px;
     }
 
+
     .auth-box h1 {
         font-size: 29px;
+
         letter-spacing: 3px;
     }
+
 
     .auth-box h2 {
         font-size: 22px;
     }
 
+
     .auth-subtitle {
         font-size: 13px;
+
         line-height: 1.5;
     }
+
 
     .input-group input {
         padding: 13px 14px;
     }
 
+
     .auth-button {
         padding: 14px;
     }
+
 }
 
 
-/* =========================
+/* =========================================================
    VERY SMALL PHONES
-========================= */
+========================================================= */
 
 @media (max-width: 380px) {
 
@@ -582,80 +1039,27 @@ main {
         padding: 30px 18px;
     }
 
+
     .auth-box h1 {
         font-size: 26px;
     }
 
+
     .auth-box .angel-decoration {
         font-size: 26px;
+
         letter-spacing: 5px;
     }
+
 
     .hero {
         padding: 40px 16px;
     }
 
-    .hero h1 {
+
+    .hero h1,
+    .hero h2 {
         font-size: 32px;
     }
-}
-/* =========================================================
-   SITE HEADER - PROFİL SAYFASI
-========================================================= */
 
-.site-header {
-    padding: 25px;
-    text-align: center;
-    border-bottom: 1px solid #403943;
-    background: transparent;
-}
-
-.site-header .logo {
-    color: #ed8fba;
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    margin-bottom: 18px;
-}
-
-.main-nav {
-    margin-top: 0;
-}
-
-.main-nav a {
-    color: #f5dce9;
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 15px;
-    transition: 0.2s;
-}
-
-.main-nav a:hover {
-    color: #ed8fba;
-}
-
-/* Giriş yapmış kullanıcıda menü */
-.main-nav a[href="auth.html"] {
-    color: #f5dce9;
-}
-
-.main-nav a[href="auth.html"]:hover {
-    color: #ed8fba;
-}
-
-@media (max-width: 600px) {
-
-    .site-header {
-        padding: 20px 10px;
-    }
-
-    .site-header .logo {
-        font-size: 30px;
-    }
-
-    .main-nav a {
-        display: inline-block;
-        margin: 6px 7px;
-        font-size: 14px;
-    }
 }
