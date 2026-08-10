@@ -4,189 +4,356 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Giriş | XOXO</title>
+    <title>Giriş / Kayıt | XOXO</title>
+
+    <link rel="stylesheet" href="style.css">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            margin: 0;
-            min-height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-            background: #1e1b20;
-            color: #f8eaf2;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .auth-main {
-            flex: 1;
+        .auth-page {
+            min-height: calc(100vh - 170px);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px 80px;
+            padding: 40px 20px;
         }
 
         .auth-box {
             width: 100%;
             max-width: 430px;
+            padding: 40px 30px;
             background: #29252b;
             border: 1px solid #4b424c;
             border-radius: 28px;
-            padding: 40px 30px;
             text-align: center;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
         }
 
-        .logo {
+        .auth-decoration {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .auth-box h1 {
+            margin: 0 0 8px;
             color: #ed8fba;
-            font-size: 38px;
             letter-spacing: 4px;
-            margin-bottom: 10px;
         }
 
-        .angel {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
+        .auth-box h2 {
+            margin: 0 0 28px;
             color: #f5dce9;
-            margin-bottom: 25px;
+            font-size: 22px;
         }
 
-        input {
+        .auth-input {
             width: 100%;
-            padding: 15px;
+            padding: 14px 16px;
             margin-bottom: 14px;
-            border-radius: 14px;
             border: 1px solid #554c56;
+            border-radius: 14px;
             background: #201d22;
-            color: white;
+            color: #fff;
             outline: none;
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        input:focus {
+        .auth-input:focus {
             border-color: #ed8fba;
         }
 
-        button {
+        .auth-button {
             width: 100%;
-            padding: 15px;
-            margin-top: 5px;
-            border: none;
+            padding: 14px;
+            border: 0;
             border-radius: 25px;
-            background: #e88db7;
-            color: #211d22;
-            font-size: 16px;
+            background: #ed8fba;
+            color: #241f24;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
+            margin-top: 4px;
         }
 
-        button:hover {
+        .auth-button:hover {
             background: #f1a1c6;
         }
 
-        .secondary {
+        .google-button {
             background: #454047;
-            color: white;
+            color: #fff;
             margin-top: 12px;
         }
 
-        .back {
-            display: inline-block;
+        .google-button:hover {
+            background: #514b53;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 22px 0;
+            color: #8f858e;
+            font-size: 13px;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #403943;
+        }
+
+        .auth-switch {
             margin-top: 22px;
-            color: #d8baca;
-            text-decoration: none;
+            color: #aaa0a8;
             font-size: 14px;
         }
 
-        .back:hover {
+        .auth-switch button {
+            border: 0;
+            background: none;
             color: #ed8fba;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
         }
 
-        #message {
+        .auth-message {
             min-height: 22px;
-            margin-top: 18px;
+            margin: 16px 0 0;
+            color: #ed8fba;
+            font-size: 14px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: #bcaeb7;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-home:hover {
             color: #ed8fba;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px 15px;
-            border-top: 1px solid #403943;
-            color: #8f858e;
-            font-size: 13px;
-            background: #1e1b20;
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .auth-page {
+                padding: 25px 15px;
+            }
+
+            .auth-box {
+                padding: 32px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <main class="auth-main">
+<header class="site-header">
 
-        <div class="auth-box">
+    <div class="logo">
+        XOXO
+    </div>
 
-            <div class="logo">
-                XOXO
-            </div>
+    <nav class="main-nav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="manga.html">Manga</a>
+        <a href="manhwa.html">Manhwa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="auth.html">Giriş Yap</a>
+    </nav>
 
-            <div class="angel">
-                ✦ 🪽 ✦
-            </div>
+</header>
 
-            <h2>Giriş Yap</h2>
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Email adresin"
-                autocomplete="email"
-            >
+<main class="auth-page">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Şifren"
-                autocomplete="current-password"
-            >
+    <section class="auth-box">
 
-            <button id="loginBtn">
-                Giriş Yap
-            </button>
+        <div class="auth-decoration">
+            ✦ 🪽 ✦
+        </div>
+
+        <h1>XOXO</h1>
+
+        <h2 id="formTitle">
+            Giriş Yap
+        </h2>
+
+
+        <!-- E-POSTA -->
+
+        <input
+            type="email"
+            id="email"
+            class="auth-input"
+            placeholder="Email adresin"
+            autocomplete="email"
+        >
+
+
+        <!-- ŞİFRE -->
+
+        <input
+            type="password"
+            id="password"
+            class="auth-input"
+            placeholder="Şifren"
+            autocomplete="current-password"
+        >
+
+
+        <!-- KAYITTA GÖRÜNECEK -->
+
+        <input
+            type="password"
+            id="passwordConfirm"
+            class="auth-input hidden"
+            placeholder="Şifreni tekrar gir"
+            autocomplete="new-password"
+        >
+
+
+        <!-- ANA BUTON -->
+
+        <button
+            id="submitBtn"
+            class="auth-button"
+            type="button"
+        >
+            Giriş Yap
+        </button>
+
+
+        <div class="auth-divider">
+            veya
+        </div>
+
+
+        <!-- GOOGLE -->
+
+        <button
+            id="googleBtn"
+            class="auth-button google-button"
+            type="button"
+        >
+            Google ile devam et
+        </button>
+
+
+        <p
+            id="message"
+            class="auth-message"
+        ></p>
+
+
+        <div class="auth-switch">
+
+            <span id="switchText">
+                Hesabın yok mu?
+            </span>
 
             <button
-                id="registerBtn"
-                class="secondary"
+                id="switchBtn"
+                type="button"
             >
-                Hesap Oluştur
+                Hesap oluştur
             </button>
-
-            <p id="message"></p>
-
-            <a
-                href="index.html"
-                class="back"
-            >
-                ← Ana sayfaya dön
-            </a>
 
         </div>
 
-    </main>
 
-    <footer>
-        © 2026 XOXO Manga. Tüm hakları saklıdır.
-    </footer>
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Ana sayfaya dön
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <p>
+        © 2026 XOXO Manga
+    </p>
+
+</footer>
+
+
+<script>
+
+    let registerMode = false;
+
+    const formTitle = document.getElementById("formTitle");
+    const passwordConfirm = document.getElementById("passwordConfirm");
+    const submitBtn = document.getElementById("submitBtn");
+    const switchText = document.getElementById("switchText");
+    const switchBtn = document.getElementById("switchBtn");
+    const message = document.getElementById("message");
+
+
+    switchBtn.addEventListener("click", function () {
+
+        registerMode = !registerMode;
+
+        message.textContent = "";
+
+        if (registerMode) {
+
+            formTitle.textContent = "Hesap Oluştur";
+
+            submitBtn.textContent = "Kayıt Ol";
+
+            passwordConfirm.classList.remove("hidden");
+
+            switchText.textContent = "Zaten hesabın var mı?";
+
+            switchBtn.textContent = "Giriş yap";
+
+        } else {
+
+            formTitle.textContent = "Giriş Yap";
+
+            submitBtn.textContent = "Giriş Yap";
+
+            passwordConfirm.classList.add("hidden");
+
+            switchText.textContent = "Hesabın yok mu?";
+
+            switchBtn.textContent = "Hesap oluştur";
+        }
+
+    });
+
+
+    submitBtn.addEventListener("click", function () {
+
+        message.textContent =
+            "Supabase bağlantısı henüz yapılmadı.";
+
+    });
+
+
+    googleBtn.addEventListener("click", function () {
+
+        message.textContent =
+            "Google bağlantısı henüz yapılmadı.";
+
+    });
+
+</script>
 
 </body>
 </html>
