@@ -1,78 +1,182 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>XOXO Manga</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <header class="site-header">
 
-        <div class="logo">
-            XOXO
+<header class="site-header">
+
+    <div class="logo">
+        XOXO
+    </div>
+
+    <nav class="main-nav">
+
+        <a href="index.html">
+            Ana Sayfa
+        </a>
+
+        <a href="manga.html">
+            Manga
+        </a>
+
+        <a href="manhwa.html">
+            Manhwa
+        </a>
+
+        <a href="hakkimizda.html">
+            Hakkımızda
+        </a>
+
+        <!-- Giriş / Profil buradan değişecek -->
+        <a href="auth.html" id="authNav">
+            Giriş Yap
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-decoration">
+            ✦ 🪽 ✦
         </div>
 
-        <nav class="main-nav">
-            <a href="index.html">Ana Sayfa</a>
-            <a href="manga.html">Manga</a>
-            <a href="manhwa.html">Manhwa</a>
-            <a href="hakkimizda.html">Hakkımızda</a>
-            <a href="auth.html">Giriş Yap</a>
-        </nav>
-
-    </header>
-
-
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-decoration">
-                ✦ 🪽 ✦
-            </div>
-
-            <h1>XOXO Manga</h1>
-
-            <p>
-                Manga ve manhwa dünyasına hoş geldin.
-            </p>
-
-            <a href="manga.html" class="main-button">
-                Mangaları Keşfet
-            </a>
-
-        </section>
-
-
-        <section class="upcoming">
-
-            <h2>Yakında</h2>
-
-            <p>
-                Yeni manga ve manhwa içerikleri çok yakında burada.
-            </p>
-
-            <div class="angel-line">
-                ✦ 🪽 ✦
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer class="site-footer">
+        <h1>
+            XOXO Manga
+        </h1>
 
         <p>
-            © 2026 XOXO Manga
+            Manga ve manhwa dünyasına hoş geldin.
         </p>
 
-    </footer>
+        <a href="manga.html" class="main-button">
+            Mangaları Keşfet
+        </a>
+
+    </section>
+
+
+    <section class="upcoming">
+
+        <h2>
+            Yakında
+        </h2>
+
+        <p>
+            Yeni manga ve manhwa içerikleri çok yakında burada.
+        </p>
+
+        <div class="angel-line">
+            ✦ 🪽 ✦
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <p>
+        © 2026 XOXO Manga
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+    const SUPABASE_URL =
+        "https://gldvzlfuupettcauexfy.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H";
+
+
+    const { createClient } = supabase;
+
+    const db = createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+    /* =====================================================
+       GİRİŞ DURUMUNU KONTROL ET
+    ===================================================== */
+
+    const authNav =
+        document.getElementById("authNav");
+
+
+    async function updateAuthNav() {
+
+        const {
+            data: {
+                session
+            }
+        } = await db.auth.getSession();
+
+
+        if (session) {
+
+            authNav.textContent = "Profil";
+
+            authNav.href = "profil.html";
+
+        } else {
+
+            authNav.textContent = "Giriş Yap";
+
+            authNav.href = "auth.html";
+
+        }
+
+    }
+
+
+    /* Sayfa açıldığında kontrol et */
+
+    updateAuthNav();
+
+
+    /* Giriş / çıkış olduğunda navbarı anında güncelle */
+
+    db.auth.onAuthStateChange(
+        function () {
+
+            updateAuthNav();
+
+        }
+    );
+
+</script>
+
 
 </body>
+
 </html>
