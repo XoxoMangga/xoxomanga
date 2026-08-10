@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #1e1b20;
+    color: #f8eaf2;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid #403943;
+}
+
+header h1 {
+    margin: 0;
+    color: #ed8fba;
+    font-size: 36px;
+    letter-spacing: 4px;
+}
+
+nav {
+    margin-top: 18px;
+}
+
+nav a {
+    color: #f5dce9;
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ed8fba;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    min-height: calc(100vh - 180px);
+    padding: 40px 20px;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.hero {
+    width: 100%;
+    max-width: 850px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 70px 30px;
+    border: 1px solid #4b424c;
+    border-radius: 30px;
+    background: #29252b;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+.hero-decoration {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    margin: 0;
+    color: #ed8fba;
+    font-size: 48px;
+}
+
+.hero p {
+    color: #cfc5cd;
+    font-size: 18px;
+    margin: 20px 0 30px;
+}
+
+.coming-soon {
+    color: #ed8fba;
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+
+/* =========================
+   SIMPLE COMING SOON PAGES
+========================= */
+
+.coming-page {
+    min-height: calc(100vh - 180px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.coming-page .angel {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.coming-page h2 {
+    color: #ed8fba;
+    font-size: 32px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 700px;
+    margin: 80px auto;
+    text-align: center;
+    background: #29252b;
+    border: 1px solid #4b424c;
+    border-radius: 28px;
+    padding: 50px 35px;
+}
+
+.about .angel {
+    font-size: 30px;
+}
+
+.about h2 {
+    color: #ed8fba;
+    font-size: 34px;
+}
+
+.about p {
+    color: #cfc5cd;
+    line-height: 1.8;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-page {
+    min-height: calc(100vh - 180px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile .angel {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.profile h2 {
+    color: #ed8fba;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 22px 15px;
+    border-top: 1px solid #403943;
+    color: #8f858e;
+    font-size: 13px;
+    background: #1e1b20;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 20px 10px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px 7px;
+        font-size: 14px;
+    }
+
+    .hero {
+        margin: 40px auto;
+        padding: 50px 20px;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about {
+        margin: 40px auto;
+        padding: 35px 20px;
+    }
+}
