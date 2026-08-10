@@ -11,16 +11,27 @@
             box-sizing: border-box;
         }
 
+        html,
         body {
             margin: 0;
+            min-height: 100%;
+        }
+
+        body {
             min-height: 100vh;
             background: #1e1b20;
             color: #f8eaf2;
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
+        }
+
+        .auth-main {
+            flex: 1;
+            display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px 80px;
         }
 
         .auth-box {
@@ -31,7 +42,7 @@
             border-radius: 28px;
             padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 15px 45px rgba(0,0,0,.35);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
         }
 
         .logo {
@@ -91,11 +102,15 @@
         }
 
         .back {
-            display: block;
+            display: inline-block;
             margin-top: 22px;
             color: #d8baca;
             text-decoration: none;
             font-size: 14px;
+        }
+
+        .back:hover {
+            color: #ed8fba;
         }
 
         #message {
@@ -103,54 +118,75 @@
             margin-top: 18px;
             color: #ed8fba;
         }
+
+        footer {
+            text-align: center;
+            padding: 20px 15px;
+            border-top: 1px solid #403943;
+            color: #8f858e;
+            font-size: 13px;
+            background: #1e1b20;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="auth-box">
+    <main class="auth-main">
 
-        <div class="logo">XOXO</div>
+        <div class="auth-box">
 
-        <div class="angel">
-            ✦ 🪽 ✦
+            <div class="logo">
+                XOXO
+            </div>
+
+            <div class="angel">
+                ✦ 🪽 ✦
+            </div>
+
+            <h2>Giriş Yap</h2>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email adresin"
+                autocomplete="email"
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Şifren"
+                autocomplete="current-password"
+            >
+
+            <button id="loginBtn">
+                Giriş Yap
+            </button>
+
+            <button
+                id="registerBtn"
+                class="secondary"
+            >
+                Hesap Oluştur
+            </button>
+
+            <p id="message"></p>
+
+            <a
+                href="index.html"
+                class="back"
+            >
+                ← Ana sayfaya dön
+            </a>
+
         </div>
 
-        <h2>Giriş Yap</h2>
+    </main>
 
-        <input
-            type="email"
-            id="email"
-            placeholder="Email adresin"
-        >
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Şifren"
-        >
-
-        <button id="loginBtn">
-            Giriş Yap
-        </button>
-
-        <button
-            id="registerBtn"
-            class="secondary"
-        >
-            Hesap Oluştur
-        </button>
-
-        <p id="message"></p>
-
-        <a
-            href="index.html"
-            class="back"
-        >
-            ← Ana sayfaya dön
-        </a>
-
-    </div>
+    <footer>
+        © 2026 XOXO Manga. Tüm hakları saklıdır.
+    </footer>
 
 </body>
 </html>
