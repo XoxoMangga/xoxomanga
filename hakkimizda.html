@@ -1,99 +1,32 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Hakkımızda | XOXO</title>
 
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: #1e1b20;
-            color: #f8eaf2;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            padding: 25px;
-            text-align: center;
-            border-bottom: 1px solid #403943;
-        }
-
-        h1 {
-            margin: 0;
-            color: #ed8fba;
-            letter-spacing: 3px;
-        }
-
-        nav {
-            margin-top: 18px;
-        }
-
-        nav a {
-            color: #f5dce9;
-            text-decoration: none;
-            margin: 0 12px;
-        }
-
-        nav a:hover {
-            color: #ed8fba;
-        }
-
-        main {
-            min-height: calc(100vh - 180px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        .about {
-            max-width: 700px;
-            text-align: center;
-            background: #29252b;
-            border: 1px solid #4b424c;
-            border-radius: 28px;
-            padding: 50px 35px;
-        }
-
-        .about h2 {
-            color: #ed8fba;
-            font-size: 34px;
-        }
-
-        .about p {
-            color: #cfc5cd;
-            line-height: 1.8;
-        }
-
-        .angel {
-            font-size: 30px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 15px;
-            border-top: 1px solid #403943;
-            color: #8f858e;
-            font-size: 13px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>XOXO</h1>
+<header class="site-header">
 
-    <nav>
+    <div class="logo">
+        XOXO
+    </div>
+
+    <nav class="main-nav">
         <a href="index.html">Ana Sayfa</a>
         <a href="manga.html">Manga</a>
         <a href="manhwa.html">Manhwa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="profil.html">Profil</a>
         <a href="auth.html">Giriş Yap</a>
     </nav>
+
 </header>
 
 <main>
@@ -104,25 +37,30 @@
             ✦ 🪽 ✦
         </div>
 
-        <h2>Hakkımızda</h2>
+        <h1>Hakkımızda</h1>
 
         <p>
             XOXO Manga, manga ve manhwa severler için
-            oluşturulan yeni bir platformdur.
+            sade, romantik ve keyifli bir okuma alanı oluşturmak
+            amacıyla hazırlanan bir projedir.
         </p>
 
         <p>
-            Sitemiz şu anda geliştirme aşamasındadır.
-            Çok yakında daha fazla içerik ve özellik
-            burada olacak.
+            Burada yeni seriler keşfedebilir,
+            favorilerini oluşturabilir ve
+            manga dünyasının tadını çıkarabilirsin.
+        </p>
+
+        <p>
+            Daha fazla içerik ve özellik çok yakında burada olacak. ♡
         </p>
 
     </section>
 
 </main>
 
-<footer>
-    © 2026 XOXO Manga. Tüm hakları saklıdır.
+<footer class="site-footer">
+    © 2026 XOXO Manga
 </footer>
 
 </body>
