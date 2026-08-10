@@ -2,15 +2,23 @@
 <html lang="tr">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Manhwa | XOXO</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+
 <body>
+
 
 <header class="site-header">
 
@@ -19,65 +27,120 @@
     </div>
 
     <nav class="main-nav">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="manga.html">Manga</a>
-        <a href="manhwa.html">Manhwa</a>
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="profil.html">Profil</a>
-        <a href="auth.html">Giriş Yap</a>
+
+        <a href="index.html">
+            Ana Sayfa
+        </a>
+
+        <a href="manga.html">
+            Manga
+        </a>
+
+        <a href="manhwa.html">
+            Manhwa
+        </a>
+
+        <a href="hakkimizda.html">
+            Hakkımızda
+        </a>
+
+        <a href="auth.html" id="authNavLink">
+            Giriş Yap
+        </a>
+
     </nav>
 
 </header>
 
+
 <main>
 
-    <section class="content-card">
+    <section class="coming-page">
 
-        <div class="hero-decoration">
-            ✦ 🪽 ✦
-        </div>
+        <div>
 
-        <h1>Manhwa</h1>
+            <div class="angel">
+                ✦ 🪽 ✦
+            </div>
 
-        <p>
-            Kore webtoon ve manhwa dünyasını burada keşfedebilirsin.
-        </p>
+            <h2>
+                Manhwa
+            </h2>
 
-    </section>
-
-    <section class="manga-grid">
-
-        <div class="manga-card">
-            <div class="card-icon">📚</div>
-            <h3>Yakında</h3>
             <p>
-                Manhwa içerikleri çok yakında eklenecek.
+                Manhwa içerikleri çok yakında burada.
             </p>
-        </div>
 
-        <div class="manga-card">
-            <div class="card-icon">🪽</div>
-            <h3>Yeni Seriler</h3>
-            <p>
-                Yeni seriler için takipte kal.
-            </p>
-        </div>
-
-        <div class="manga-card">
-            <div class="card-icon">♡</div>
-            <h3>Favoriler</h3>
-            <p>
-                Favori manhwalarını burada görebileceksin.
-            </p>
         </div>
 
     </section>
 
 </main>
 
-<footer class="site-footer">
-    © 2026 XOXO Manga
+
+<footer>
+
+    <p>
+        © 2026 XOXO Manga
+    </p>
+
 </footer>
+
+
+<script type="module">
+
+import { createClient }
+from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+const supabase = createClient(
+
+    "https://gldvzlfuupettcauexfy.supabase.co",
+
+    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H"
+
+);
+
+
+async function updateAuthMenu() {
+
+    const link =
+        document.getElementById("authNavLink");
+
+    if (!link) return;
+
+
+    const {
+        data: { session }
+    } = await supabase.auth.getSession();
+
+
+    if (session) {
+
+        link.textContent = "Profil";
+        link.href = "profil.html";
+
+    } else {
+
+        link.textContent = "Giriş Yap";
+        link.href = "auth.html";
+
+    }
+
+}
+
+
+updateAuthMenu();
+
+
+supabase.auth.onAuthStateChange(() => {
+
+    updateAuthMenu();
+
+});
+
+</script>
+
 
 </body>
 </html>
