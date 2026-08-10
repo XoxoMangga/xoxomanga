@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Giriş | XOXO</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #1e1b20;
+            color: #f8eaf2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .auth-box {
+            width: 100%;
+            max-width: 430px;
+            background: #29252b;
+            border: 1px solid #4b424c;
+            border-radius: 28px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 45px rgba(0,0,0,.35);
+        }
+
+        .logo {
+            color: #ed8fba;
+            font-size: 38px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .angel {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #f5dce9;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 14px;
+            border-radius: 14px;
+            border: 1px solid #554c56;
+            background: #201d22;
+            color: white;
+            outline: none;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #ed8fba;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 25px;
+            background: #e88db7;
+            color: #211d22;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #f1a1c6;
+        }
+
+        .secondary {
+            background: #454047;
+            color: white;
+            margin-top: 12px;
+        }
+
+        .back {
+            display: block;
+            margin-top: 22px;
+            color: #d8baca;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #message {
+            min-height: 22px;
+            margin-top: 18px;
+            color: #ed8fba;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-box">
+
+        <div class="logo">XOXO</div>
+
+        <div class="angel">
+            ✦ 🪽 ✦
+        </div>
+
+        <h2>Giriş Yap</h2>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email adresin"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Şifren"
+        >
+
+        <button id="loginBtn">
+            Giriş Yap
+        </button>
+
+        <button
+            id="registerBtn"
+            class="secondary"
+        >
+            Hesap Oluştur
+        </button>
+
+        <p id="message"></p>
+
+        <a
+            href="index.html"
+            class="back"
+        >
+            ← Ana sayfaya dön
+        </a>
+
+    </div>
+
+</body>
+</html>
