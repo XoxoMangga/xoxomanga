@@ -22,7 +22,7 @@ body {
             rgba(30, 25, 32, 0.72),
             rgba(30, 25, 32, 0.82)
         ),
-        url("background.jpg") center center / cover fixed no-repeat;
+        url("bg.jpg") center center / cover fixed no-repeat;
     background-color: #211d23;
     overflow-x: hidden;
 }
