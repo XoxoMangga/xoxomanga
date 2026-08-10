@@ -5,14 +5,17 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>XOXO Manga</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
+
 
 <body>
 
@@ -22,6 +25,7 @@
     <div class="logo">
         XOXO
     </div>
+
 
     <nav class="main-nav">
 
@@ -41,8 +45,10 @@
             Hakkımızda
         </a>
 
-        <!-- Giriş / Profil buradan değişecek -->
-        <a href="auth.html" id="authNav">
+        <a
+            href="auth.html"
+            id="authNav"
+        >
             Giriş Yap
         </a>
 
@@ -51,7 +57,9 @@
 </header>
 
 
+
 <main>
+
 
     <section class="hero">
 
@@ -59,19 +67,26 @@
             ✦ 🪽 ✦
         </div>
 
+
         <h1>
             XOXO Manga
         </h1>
+
 
         <p>
             Manga ve manhwa dünyasına hoş geldin.
         </p>
 
-        <a href="manga.html" class="main-button">
+
+        <a
+            href="manga.html"
+            class="main-button"
+        >
             Mangaları Keşfet
         </a>
 
     </section>
+
 
 
     <section class="upcoming">
@@ -80,9 +95,11 @@
             Yakında
         </h2>
 
+
         <p>
             Yeni manga ve manhwa içerikleri çok yakında burada.
         </p>
+
 
         <div class="angel-line">
             ✦ 🪽 ✦
@@ -90,7 +107,9 @@
 
     </section>
 
+
 </main>
+
 
 
 <footer class="site-footer">
@@ -102,77 +121,72 @@
 </footer>
 
 
-<!-- =====================================================
-     SUPABASE
-===================================================== -->
+
+<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
 <script>
 
-    const SUPABASE_URL =
-        "https://gldvzlfuupettcauexfy.supabase.co";
+const SUPABASE_URL =
+    "https://gldvzlfuupettcauexfy.supabase.co";
 
-    const SUPABASE_PUBLISHABLE_KEY =
-        "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H";
-
-
-    const { createClient } = supabase;
-
-    const db = createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-    );
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H";
 
 
-    /* =====================================================
-       GİRİŞ DURUMUNU KONTROL ET
-    ===================================================== */
-
-    const authNav =
-        document.getElementById("authNav");
+const { createClient } = supabase;
 
 
-    async function updateAuthNav() {
-
-        const {
-            data: {
-                session
-            }
-        } = await db.auth.getSession();
+const db = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
 
 
-        if (session) {
+const authNav =
+    document.getElementById("authNav");
 
-            authNav.textContent = "Profil";
 
-            authNav.href = "profil.html";
+async function updateAuthNav() {
 
-        } else {
+    const {
+        data
+    } = await db.auth.getSession();
 
-            authNav.textContent = "Giriş Yap";
 
-            authNav.href = "auth.html";
+    if (data.session) {
 
-        }
+        authNav.textContent =
+            "Profil";
+
+        authNav.href =
+            "profil.html";
+
+    } else {
+
+        authNav.textContent =
+            "Giriş Yap";
+
+        authNav.href =
+            "auth.html";
 
     }
 
-
-    /* Sayfa açıldığında kontrol et */
-
-    updateAuthNav();
+}
 
 
-    /* Giriş / çıkış olduğunda navbarı anında güncelle */
+updateAuthNav();
 
-    db.auth.onAuthStateChange(
-        function () {
 
-            updateAuthNav();
+db.auth.onAuthStateChange(
+    function () {
 
-        }
-    );
+        updateAuthNav();
+
+    }
+);
 
 </script>
 
