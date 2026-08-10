@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>Profil - XOXO Manga</title>
+<title>Profil | XOXO Manga</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 </head>
 
 
 <body>
 
+
 <header class="site-header">
 
     <div class="logo">
         XOXO
     </div>
+
 
     <nav class="main-nav">
 
@@ -44,12 +47,11 @@
             Hakkımızda
         </a>
 
-        <a href="profil.html">
+        <a
+            href="profil.html"
+            id="authNavLink"
+        >
             Profil
-        </a>
-
-        <a href="auth.html">
-            Giriş Yap
         </a>
 
     </nav>
@@ -57,235 +59,209 @@
 </header>
 
 
+
 <main class="profile-page">
 
+<section class="profile-card">
 
-    <div class="profile-card">
 
-        <div class="profile-decoration">
-            ✦ 🪽 ✦
+    <div class="profile-decoration">
+        ✦ 🪽 ✦
+    </div>
+
+
+    <h1>
+        Profilim
+    </h1>
+
+
+    <div class="avatar-wrapper">
+
+        <div
+            id="avatarPlaceholder"
+            class="avatar-placeholder"
+        >
+            ♡
         </div>
 
 
-        <h1>
-            Profilim
-        </h1>
-
-
-        <!-- PROFİL FOTOĞRAFI -->
-
-        <div class="avatar-wrapper">
-
-            <img
-                id="avatar"
-                src=""
-                alt="Profil Fotoğrafı"
-                class="profile-avatar"
-            >
-
-            <div
-                id="avatar-placeholder"
-                class="avatar-placeholder"
-            >
-                ♡
-            </div>
-
-        </div>
-
-
-        <input
-            type="file"
-            id="avatar-input"
-            accept="image/png,image/jpeg,image/webp"
-            hidden
+        <img
+            id="profileAvatar"
+            class="profile-avatar"
+            alt="Profil Fotoğrafı"
         >
-
-
-        <button
-            type="button"
-            id="avatar-button"
-            class="profile-button"
-        >
-            Profil Fotoğrafı Seç
-        </button>
-
-
-        <div id="avatar-message"></div>
-
-
-        <!-- KULLANICI BİLGİSİ -->
-
-        <div class="profile-info">
-
-            <h2 id="username">
-                Yükleniyor...
-            </h2>
-
-            <p id="email">
-                Yükleniyor...
-            </p>
-
-            <p class="member-text">
-                XOXO Manga üyesi ♡
-            </p>
-
-        </div>
-
-
-        <button
-            type="button"
-            id="logout-button"
-            class="logout-button"
-        >
-            Çıkış Yap
-        </button>
-
 
     </div>
 
 
+    <div
+        id="profileName"
+        class="profile-name"
+    >
+        Yükleniyor...
+    </div>
+
+
+    <div
+        id="profileEmail"
+        class="profile-email"
+    >
+        Yükleniyor...
+    </div>
+
+
+    <div class="profile-status">
+        XOXO Manga üyesi ♡
+    </div>
+
+
+    <input
+        type="file"
+        id="avatarInput"
+        accept="image/jpeg,image/png,image/webp,image/gif"
+    >
+
+
+    <button
+        type="button"
+        id="avatarButton"
+        class="avatar-button"
+    >
+        Profil Fotoğrafı Seç
+    </button>
+
+
+    <div
+        id="profileMessage"
+        aria-live="polite"
+    ></div>
+
+
+    <button
+        type="button"
+        id="logoutButton"
+        class="logout-button"
+    >
+        Çıkış Yap
+    </button>
+
+
+</section>
+
 </main>
+
 
 
 <script>
 
-/* =========================================================
-   SUPABASE
-========================================================= */
 
-const SUPABASE_URL = "https://gldvz1fuupettcauexfy.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_LQRuadaAeDNPSQA1SA32qA_ddQP5g1H";
-
-const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-);
+const SUPABASE_URL =
+    "https://gldvzlfuupettcauexfy.supabase.co";
 
 
-/* =========================================================
-   ELEMENTLER
-========================================================= */
+const SUPABASE_ANON_KEY =
+    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H";
 
-const avatar =
-    document.getElementById("avatar");
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+
+const profileAvatar =
+    document.getElementById(
+        "profileAvatar"
+    );
+
 
 const avatarPlaceholder =
-    document.getElementById("avatar-placeholder");
+    document.getElementById(
+        "avatarPlaceholder"
+    );
+
+
+const profileName =
+    document.getElementById(
+        "profileName"
+    );
+
+
+const profileEmail =
+    document.getElementById(
+        "profileEmail"
+    );
+
 
 const avatarInput =
-    document.getElementById("avatar-input");
+    document.getElementById(
+        "avatarInput"
+    );
+
 
 const avatarButton =
-    document.getElementById("avatar-button");
+    document.getElementById(
+        "avatarButton"
+    );
 
-const avatarMessage =
-    document.getElementById("avatar-message");
-
-const usernameElement =
-    document.getElementById("username");
-
-const emailElement =
-    document.getElementById("email");
 
 const logoutButton =
-    document.getElementById("logout-button");
+    document.getElementById(
+        "logoutButton"
+    );
 
 
-/* =========================================================
-   MESAJ
-========================================================= */
+const profileMessage =
+    document.getElementById(
+        "profileMessage"
+    );
 
-function showAvatarMessage(text, type = "") {
 
-    avatarMessage.textContent = text;
-    avatarMessage.className = type;
+const authNavLink =
+    document.getElementById(
+        "authNavLink"
+    );
+
+
+
+function showMessage(
+    text,
+    type = ""
+) {
+
+    profileMessage.textContent =
+        text;
+
+    profileMessage.className =
+        type;
 
 }
 
 
-/* =========================================================
-   PROFİLİ YÜKLE
-========================================================= */
 
-async function loadProfile() {
+function showAvatar(url) {
 
-    /*
-       BURADA AUTH SAYFASINA OTOMATİK OLARAK
-       GİDİP GELME YOK.
+    if (url) {
 
-       Sadece gerçekten session yoksa auth'a gider.
-    */
+        profileAvatar.src =
+            url;
 
-    const {
-        data: { session },
-        error
-    } = await supabaseClient.auth.getSession();
-
-
-    if (error) {
-
-        console.error(error);
-
-        return;
-
-    }
-
-
-    if (!session) {
-
-        window.location.replace("auth.html");
-
-        return;
-
-    }
-
-
-    const user = session.user;
-
-
-    /* Kullanıcı adı */
-
-    const username =
-        user.user_metadata?.username;
-
-
-    if (username) {
-
-        usernameElement.textContent =
-            username;
-
-    } else {
-
-        usernameElement.textContent =
-            "XOXO Üyesi";
-
-    }
-
-
-    /* E-posta */
-
-    emailElement.textContent =
-        user.email || "";
-
-
-    /* Avatar */
-
-    const avatarUrl =
-        user.user_metadata?.avatar_url;
-
-
-    if (avatarUrl) {
-
-        avatar.src = avatarUrl;
-
-        avatar.style.display = "block";
+        profileAvatar.style.display =
+            "block";
 
         avatarPlaceholder.style.display =
             "none";
 
     } else {
 
-        avatar.style.display = "none";
+        profileAvatar.removeAttribute(
+            "src"
+        );
+
+        profileAvatar.style.display =
+            "none";
 
         avatarPlaceholder.style.display =
             "flex";
@@ -295,9 +271,120 @@ async function loadProfile() {
 }
 
 
-/* =========================================================
-   PROFİL FOTOĞRAFI BUTONU
-========================================================= */
+
+function avatarPath(userId) {
+
+    return userId + "/avatar";
+
+}
+
+
+
+async function loadAvatar(userId) {
+
+    const { data } =
+        supabaseClient.storage
+            .from("avatars")
+            .getPublicUrl(
+                avatarPath(userId)
+            );
+
+
+    if (
+        !data ||
+        !data.publicUrl
+    ) {
+
+        showAvatar(null);
+
+        return;
+
+    }
+
+
+    const url =
+        data.publicUrl +
+        "?t=" +
+        Date.now();
+
+
+    const image =
+        new Image();
+
+
+    image.onload = () => {
+
+        showAvatar(url);
+
+    };
+
+
+    image.onerror = () => {
+
+        showAvatar(null);
+
+    };
+
+
+    image.src = url;
+
+}
+
+
+
+async function loadProfile() {
+
+    const { data, error } =
+        await supabaseClient.auth
+            .getUser();
+
+
+    if (
+        error ||
+        !data ||
+        !data.user
+    ) {
+
+        window.location.replace(
+            "auth.html"
+        );
+
+        return;
+
+    }
+
+
+    const user =
+        data.user;
+
+
+    const metadata =
+        user.user_metadata || {};
+
+
+    profileName.textContent =
+        metadata.username ||
+        metadata.name ||
+        metadata.display_name ||
+        "XOXO Manga Üyesi";
+
+
+    profileEmail.textContent =
+        user.email ||
+        "XOXO Manga üyesi ♡";
+
+
+    await loadAvatar(
+        user.id
+    );
+
+}
+
+
+
+/* =========================
+   FOTOĞRAF SEÇ
+========================= */
 
 avatarButton.addEventListener(
     "click",
@@ -309,277 +396,202 @@ avatarButton.addEventListener(
 );
 
 
-/* =========================================================
-   FOTOĞRAF SEÇİLİNCE
-========================================================= */
+
+/* =========================
+   FOTOĞRAF YÜKLE
+========================= */
 
 avatarInput.addEventListener(
     "change",
     async () => {
 
         const file =
+            avatarInput.files &&
             avatarInput.files[0];
 
 
         if (!file) {
-
             return;
-
         }
 
 
-        /* Dosya boyutu */
+        if (
+            file.size >
+            5 * 1024 * 1024
+        ) {
 
-        if (file.size > 5 * 1024 * 1024) {
-
-            showAvatarMessage(
+            showMessage(
                 "Fotoğraf en fazla 5 MB olabilir.",
                 "error"
             );
 
-            avatarInput.value = "";
+            avatarInput.value =
+                "";
 
             return;
 
         }
 
 
-        /* Dosya tipi */
+        const allowed = [
 
-        const allowedTypes = [
             "image/jpeg",
             "image/png",
-            "image/webp"
+            "image/webp",
+            "image/gif"
+
         ];
 
 
-        if (!allowedTypes.includes(file.type)) {
+        if (
+            !allowed.includes(
+                file.type
+            )
+        ) {
 
-            showAvatarMessage(
-                "Sadece JPG, PNG veya WEBP yükleyebilirsin.",
+            showMessage(
+                "Lütfen JPG, PNG, WEBP veya GIF seç.",
                 "error"
             );
 
-            avatarInput.value = "";
+            avatarInput.value =
+                "";
 
             return;
 
         }
 
 
-        avatarButton.disabled = true;
-
-        avatarButton.textContent =
-            "Yükleniyor...";
-
-        showAvatarMessage("");
+        avatarButton.disabled =
+            true;
 
 
-        const {
-            data: { session }
-        } = await supabaseClient.auth.getSession();
-
-
-        if (!session) {
-
-            window.location.replace("auth.html");
-
-            return;
-
-        }
-
-
-        const user = session.user;
-
-
-        /*
-           Her kullanıcı için sabit klasör.
-           Böylece başka kullanıcıların dosyalarına
-           erişim verilmez.
-        */
-
-        const extension =
-            file.name.split(".").pop().toLowerCase();
-
-
-        const filePath =
-            user.id + "/avatar." + extension;
-
-
-        /* Önce eski avatarları temizlemek için
-           olası dosya isimlerini bulmaya çalışıyoruz. */
-
-        const possibleFiles = [
-            user.id + "/avatar.jpg",
-            user.id + "/avatar.jpeg",
-            user.id + "/avatar.png",
-            user.id + "/avatar.webp"
-        ];
-
-
-        const filesToRemove =
-            possibleFiles.filter(
-                path => path !== filePath
-            );
-
-
-        if (filesToRemove.length > 0) {
-
-            await supabaseClient
-                .storage
-                .from("avatars")
-                .remove(filesToRemove);
-
-        }
-
-
-        /*
-           Yeni fotoğrafı yükle.
-        */
-
-        const {
-            error: uploadError
-        } =
-            await supabaseClient
-                .storage
-                .from("avatars")
-                .upload(
-                    filePath,
-                    file,
-                    {
-                        cacheControl: "3600",
-                        upsert: true,
-                        contentType: file.type
-                    }
-                );
-
-
-        if (uploadError) {
-
-            console.error(uploadError);
-
-            showAvatarMessage(
-                "Fotoğraf yüklenemedi: " +
-                uploadError.message,
-                "error"
-            );
-
-            avatarButton.disabled = false;
-
-            avatarButton.textContent =
-                "Profil Fotoğrafı Seç";
-
-            return;
-
-        }
-
-
-        /*
-           Public URL al.
-        */
-
-        const {
-            data: publicData
-        } =
-            supabaseClient
-                .storage
-                .from("avatars")
-                .getPublicUrl(filePath);
-
-
-        const publicUrl =
-            publicData.publicUrl +
-            "?t=" +
-            Date.now();
-
-
-        /*
-           URL'yi kullanıcının metadata'sına kaydet.
-        */
-
-        const {
-            error: updateError
-        } =
-            await supabaseClient.auth.updateUser({
-
-                data: {
-
-                    avatar_url: publicUrl
-
-                }
-
-            });
-
-
-        if (updateError) {
-
-            console.error(updateError);
-
-            showAvatarMessage(
-                "Fotoğraf kaydedilemedi.",
-                "error"
-            );
-
-            avatarButton.disabled = false;
-
-            avatarButton.textContent =
-                "Profil Fotoğrafı Seç";
-
-            return;
-
-        }
-
-
-        /*
-           Ekranda hemen göster.
-        */
-
-        avatar.src = publicUrl;
-
-        avatar.style.display = "block";
-
-        avatarPlaceholder.style.display =
-            "none";
-
-
-        showAvatarMessage(
-            "Profil fotoğrafın güncellendi ♡",
-            "success"
+        showMessage(
+            "Fotoğraf yükleniyor..."
         );
 
 
-        avatarButton.disabled = false;
+        try {
 
-        avatarButton.textContent =
-            "Profil Fotoğrafını Değiştir";
+            const { data, error } =
+                await supabaseClient.auth
+                    .getUser();
+
+
+            if (
+                error ||
+                !data.user
+            ) {
+
+                window.location.replace(
+                    "auth.html"
+                );
+
+                return;
+
+            }
+
+
+            const path =
+                avatarPath(
+                    data.user.id
+                );
+
+
+            const { error: uploadError } =
+                await supabaseClient.storage
+                    .from("avatars")
+                    .upload(
+                        path,
+                        file,
+                        {
+                            cacheControl:
+                                "3600",
+
+                            upsert:
+                                true,
+
+                            contentType:
+                                file.type
+                        }
+                    );
+
+
+            if (uploadError) {
+                throw uploadError;
+            }
+
+
+            await loadAvatar(
+                data.user.id
+            );
+
+
+            showMessage(
+                "Profil fotoğrafın güncellendi ♡",
+                "success"
+            );
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            showMessage(
+                "Fotoğraf yüklenemedi: " +
+                (
+                    error.message ||
+                    "Bilinmeyen hata"
+                ),
+                "error"
+            );
+
+
+        } finally {
+
+            avatarButton.disabled =
+                false;
+
+            avatarInput.value =
+                "";
+
+        }
 
     }
 );
 
 
-/* =========================================================
+
+/* =========================
    ÇIKIŞ
-========================================================= */
+========================= */
 
 logoutButton.addEventListener(
     "click",
     async () => {
 
-        logoutButton.disabled = true;
+        logoutButton.disabled =
+            true;
 
         logoutButton.textContent =
             "Çıkış yapılıyor...";
 
 
         const { error } =
-            await supabaseClient.auth.signOut();
+            await supabaseClient.auth
+                .signOut();
 
 
         if (error) {
 
-            console.error(error);
+            showMessage(
+                error.message,
+                "error"
+            );
 
-            logoutButton.disabled = false;
+            logoutButton.disabled =
+                false;
 
             logoutButton.textContent =
                 "Çıkış Yap";
@@ -589,21 +601,48 @@ logoutButton.addEventListener(
         }
 
 
-        /*
-           Çıkıştan sonra sadece auth'a git.
-        */
-
-        window.location.replace("auth.html");
+        window.location.replace(
+            "auth.html"
+        );
 
     }
 );
 
 
-/* =========================================================
-   BAŞLAT
-========================================================= */
 
-loadProfile();
+/* =========================
+   PROFİLİ BAŞLAT
+========================= */
+
+(async () => {
+
+    const { data } =
+        await supabaseClient.auth
+            .getSession();
+
+
+    if (!data.session) {
+
+        window.location.replace(
+            "auth.html"
+        );
+
+        return;
+
+    }
+
+
+    authNavLink.textContent =
+        "Profil";
+
+
+    authNavLink.href =
+        "profil.html";
+
+
+    await loadProfile();
+
+})();
 
 </script>
 
