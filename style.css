@@ -1,343 +1,582 @@
 /* =========================================================
-   XOXO MANGA - ANA SITE STILI
-   Ana Sayfa / Manga / Manhwa / Hakkımızda
+   XOXO MANGA — GLOBAL STYLE
    ========================================================= */
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
-
     font-family: Arial, Helvetica, sans-serif;
-    color: #f5eaf2;
-
+    color: #f7eaf3;
     background:
-        linear-gradient(
-            rgba(35, 30, 36, 0.72),
-            rgba(35, 30, 36, 0.82)
-        ),
-        url("bg.jpg");
-
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+        linear-gradient(rgba(35, 29, 36, 0.72), rgba(35, 29, 36, 0.82)),
+        url("bg.jpg") center center / cover fixed no-repeat;
+    overflow-x: hidden;
 }
 
 /* =========================================================
    HEADER
    ========================================================= */
 
-header {
+.site-header {
     width: 100%;
-    margin: 0;
-    padding: 26px 20px 22px;
-
-    background: rgba(25, 21, 27, 0.88);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-
+    padding: 24px 20px 22px;
+    background: rgba(28, 23, 30, 0.90);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
     text-align: center;
 }
 
 .logo {
-    margin: 0 0 20px;
-
-    color: #ed86b6;
+    color: #ed86b8;
     font-size: 42px;
     font-weight: 800;
-    letter-spacing: 5px;
-
-    text-align: center;
+    letter-spacing: 7px;
+    line-height: 1;
+    margin-bottom: 22px;
 }
 
 .main-nav {
-    width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
     gap: 32px;
-
-    margin: 0;
-    padding: 0;
 }
 
 .main-nav a {
-    color: #f6eaf2;
+    color: #f8edf5;
     text-decoration: none;
-
     font-size: 17px;
     font-weight: 600;
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .main-nav a:hover {
-    color: #ed86b6;
+    color: #ed86b8;
     transform: translateY(-1px);
 }
 
+.main-nav a.active {
+    color: #ed86b8;
+}
+
 /* =========================================================
-   GENEL SAYFA ALANI
+   GENERAL PAGE
    ========================================================= */
 
 main {
     width: 100%;
-    min-height: calc(100vh - 145px);
-
-    margin: 0;
-    padding: 55px 24px 80px;
 }
 
-/*
-   Sayfa içeriklerini ortalar.
-   Soldan kesilme problemini engeller.
-*/
-
-.page-container {
-    width: min(1100px, 100%);
+.page-content {
+    width: min(1100px, calc(100% - 40px));
     margin: 0 auto;
+    padding: 55px 0 80px;
+}
+
+.page-section {
+    margin-bottom: 65px;
 }
 
 /* =========================================================
-   SÜSLEMELER
+   ANGEL DECORATION
    ========================================================= */
 
 .angel-decoration {
-    color: #f8dceb;
-
-    font-size: 25px;
+    color: #f8ddec;
+    font-size: 24px;
+    text-align: center;
     letter-spacing: 8px;
+    margin-bottom: 20px;
+}
 
+/* =========================================================
+   HOME / MANGA / MANHWA / HAKKIMIZDA
+   ========================================================= */
+
+.hero-section,
+.hero,
+.home-hero {
+    width: min(910px, 100%);
+    margin: 70px auto 75px;
+    padding: 80px 45px;
     text-align: center;
 
+    background: rgba(35, 29, 37, 0.92);
+    border: 1px solid rgba(237, 134, 184, 0.20);
+    border-radius: 32px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.hero-section h1,
+.hero h1,
+.home-hero h1 {
+    color: #ed86b8;
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero-section p,
+.hero p,
+.home-hero p {
+    color: #eee2eb;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.hero-section h2,
+.hero h2,
+.home-hero h2 {
+    color: #ed86b8;
+}
+
+/* =========================================================
+   NORMAL CONTENT CARDS
+   ========================================================= */
+
+.content-card,
+.info-card,
+.section-card {
+    width: min(1000px, 100%);
+    margin: 0 auto 35px;
+    padding: 38px;
+
+    background: rgba(35, 29, 37, 0.90);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 24px;
+}
+
+.content-card h1,
+.content-card h2,
+.content-card h3,
+.info-card h1,
+.info-card h2,
+.info-card h3,
+.section-card h1,
+.section-card h2,
+.section-card h3 {
+    color: #ed86b8;
     margin-bottom: 18px;
 }
 
+.content-card p,
+.info-card p,
+.section-card p {
+    color: #eee2eb;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
 /* =========================================================
-   ANA SAYFA HERO
+   SECTION TITLES
    ========================================================= */
 
-.hero {
-    width: min(910px, 100%);
-    margin: 75px auto 0;
-
-    padding: 75px 45px;
-
-    background: rgba(31, 27, 34, 0.93);
-
-    border: 1px solid rgba(237, 134, 182, 0.25);
-    border-radius: 32px;
-
-    text-align: center;
-
-    box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.28);
+section h1,
+section h2 {
+    color: #ed86b8;
 }
 
-.hero h1 {
-    margin: 0 0 22px;
-
-    color: #ed86b6;
-
-    font-size: clamp(38px, 5vw, 56px);
-    font-weight: 800;
+section h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
 }
 
-.hero p {
-    margin: 0 0 30px;
+section h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
 
-    color: #eadce6;
-
-    font-size: 19px;
+section p {
+    color: #eee2eb;
+    font-size: 18px;
     line-height: 1.7;
 }
 
-.hero-button {
-    display: inline-block;
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
-    padding: 14px 30px;
-
+button,
+.auth-button,
+.primary-button,
+.hero-button,
+a.button {
+    border: none;
     border-radius: 14px;
-
-    background: #ed86b6;
-    color: #211d23;
-
-    text-decoration: none;
-
+    background: #ed86b8;
+    color: #211b21;
+    padding: 14px 28px;
     font-size: 16px;
     font-weight: 700;
-
+    cursor: pointer;
+    text-decoration: none;
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.hero-button:hover {
-    background: #f39ac4;
-
+button:hover,
+.auth-button:hover,
+.primary-button:hover,
+.hero-button:hover,
+a.button:hover {
+    background: #f29bc5;
     transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 22px rgba(237, 134, 182, 0.25);
+    box-shadow: 0 8px 25px rgba(237, 134, 184, 0.20);
 }
 
 /* =========================================================
-   YAKINDA
+   AUTH
    ========================================================= */
 
-.coming-soon {
-    width: min(900px, 100%);
-
-    margin: 80px auto 0;
-
-    text-align: center;
+.auth-page {
+    min-height: 100vh;
 }
 
-.coming-soon h2 {
-    margin: 0 0 20px;
+.auth-box {
+    width: min(520px, calc(100% - 30px));
+    margin: 60px auto;
+    padding: 42px 38px;
 
-    color: #ed86b6;
-
-    font-size: 34px;
-}
-
-.coming-soon p {
-    margin: 0;
-
-    color: #eadce6;
-
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-/* =========================================================
-   HAKKIMIZDA / MANGA / MANHWA
-   ========================================================= */
-
-.page-card {
-    width: min(1000px, 100%);
-
-    margin: 45px auto 0;
-
-    padding: 50px;
-
-    background: rgba(31, 27, 34, 0.90);
-
-    border: 1px solid rgba(237, 134, 182, 0.20);
+    background: rgba(35, 29, 37, 0.96);
+    border: 1px solid rgba(237, 134, 184, 0.25);
     border-radius: 28px;
 
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
 }
 
-.page-card h1 {
-    margin: 0 0 22px;
-
-    color: #ed86b6;
-
-    font-size: 42px;
+.auth-box h1 {
+    color: #ed86b8;
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
-.page-card h2 {
-    margin: 35px 0 15px;
-
-    color: #ed86b6;
-
+.auth-box h2 {
+    color: #f4ddea;
+    text-align: center;
     font-size: 30px;
+    margin-bottom: 28px;
 }
 
-.page-card p {
-    margin: 0 0 18px;
+.auth-subtitle {
+    color: #cdbbc8;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
 
-    color: #eadce6;
+.input-group {
+    margin-bottom: 20px;
+}
 
+.input-group label {
+    display: block;
+    color: #eadde6;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+
+    background: #211d23;
+    color: #f7edf4;
+
+    border: 1px solid #665a66;
+    border-radius: 15px;
+
+    outline: none;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    border-color: #ed86b8;
+    box-shadow: 0 0 0 3px rgba(237, 134, 184, 0.12);
+}
+
+.auth-button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.switch-text {
+    color: #cbbbc6;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.switch-button,
+.forgot-button {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    background: transparent;
+    color: #ed86b8;
+    box-shadow: none;
+}
+
+.switch-button:hover,
+.forgot-button:hover {
+    background: transparent;
+    box-shadow: none;
+    color: #f4a4c9;
+}
+
+#message {
+    margin-top: 18px;
+    text-align: center;
+    color: #ed86b8;
+    font-size: 15px;
+}
+
+.auth-box footer {
+    color: #9d8e99;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+/* =========================================================
+   PROFILE
+   SADECE PROFİL SAYFASI
+   ========================================================= */
+
+.profile-page {
+    min-height: 100vh;
+}
+
+/*
+   Profilin ana kutusu.
+   HTML'de .profile-page body üzerinde olmalı.
+*/
+
+.profile-page main {
+    width: 100%;
+}
+
+.profile-page .profile-container {
+    width: min(1050px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 50px 0 80px;
+}
+
+/* Profil başlığı */
+
+.profile-page h1 {
+    color: #ed86b8;
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* Dekorasyon */
+
+.profile-page .angel-decoration {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* Profil kartı */
+
+.profile-page .profile-card,
+.profile-page .profile-box {
+    width: 100%;
+    padding: 40px;
+
+    background: rgba(35, 29, 37, 0.94);
+    border: 1px solid rgba(237, 134, 184, 0.20);
+    border-radius: 28px;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   PROFİL FOTOĞRAFI
+   ========================================================= */
+
+/*
+   Fotoğrafın DEVASA olmasının önüne geçiyoruz.
+   Profil dışındaki hiçbir sayfadaki img etkilenmez.
+*/
+
+.profile-page .profile-avatar,
+.profile-page .profile-image,
+.profile-page .profile-photo,
+.profile-page .avatar,
+.profile-page #profile-avatar,
+.profile-page #profile-image {
+    width: 210px !important;
+    height: 210px !important;
+
+    min-width: 210px !important;
+    min-height: 210px !important;
+
+    max-width: 210px !important;
+    max-height: 210px !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    border-radius: 50% !important;
+
+    border: 3px solid #ed86b8 !important;
+
+    margin: 0 auto 28px !important;
+
+    overflow: hidden !important;
+}
+
+/*
+   Fotoğraf bir container'ın içindeyse
+*/
+
+.profile-page .avatar-wrapper,
+.profile-page .profile-photo-wrapper,
+.profile-page .profile-avatar-wrapper {
+    width: 210px !important;
+    height: 210px !important;
+
+    margin: 0 auto 28px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+
+    border-radius: 50% !important;
+}
+
+/*
+   Wrapper içindeki img
+*/
+
+.profile-page .avatar-wrapper img,
+.profile-page .profile-photo-wrapper img,
+.profile-page .profile-avatar-wrapper img {
+    width: 210px !important;
+    height: 210px !important;
+
+    max-width: 210px !important;
+    max-height: 210px !important;
+
+    object-fit: cover !important;
+    border-radius: 50% !important;
+
+    border: 3px solid #ed86b8 !important;
+}
+
+/* =========================================================
+   PROFİL BİLGİLERİ
+   ========================================================= */
+
+.profile-page .profile-info,
+.profile-page .user-info,
+.profile-page .profile-details {
+    color: #f0e5ec;
     font-size: 18px;
     line-height: 1.8;
 }
 
-/* Eğer başlık direkt body/main içindeyse */
-
-main > h1,
-main > h2 {
-    width: min(1000px, 100%);
-    margin-left: auto;
-    margin-right: auto;
-
-    color: #ed86b6;
+.profile-page .profile-info strong,
+.profile-page .user-info strong,
+.profile-page .profile-details strong {
+    color: #ed86b8;
+    font-weight: 700;
 }
 
-main > p {
-    width: min(1000px, 100%);
-    margin-left: auto;
-    margin-right: auto;
+.profile-page .username,
+.profile-page .user-name {
+    color: #f5dce9;
+    font-size: 24px;
+    font-weight: 700;
+}
 
-    color: #eadce6;
-    line-height: 1.8;
+.profile-page .email,
+.profile-page .user-email {
+    color: #ded0da;
+    font-size: 17px;
+}
+
+.profile-page .member-text {
+    color: #ed86b8;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 /* =========================================================
-   MANGA / MANHWA KARTLARI
+   PROFİL DOSYA INPUT
    ========================================================= */
 
-.manga-grid {
-    width: min(1100px, 100%);
+.profile-page input[type="file"] {
+    width: 100%;
+    max-width: 100%;
 
-    margin: 40px auto 0;
+    padding: 12px;
 
-    display: grid;
+    color: #eadde6;
+    background: rgba(30, 25, 32, 0.90);
 
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+    border: 1px solid #625665;
+    border-radius: 14px;
 
-    gap: 24px;
+    font-size: 15px;
 }
 
-.manga-card {
-    padding: 24px;
+.profile-page input[type="file"]::file-selector-button {
+    border: none;
+    border-radius: 10px;
 
-    background: rgba(31, 27, 34, 0.92);
+    padding: 10px 16px;
+    margin-right: 12px;
 
-    border: 1px solid rgba(237, 134, 182, 0.18);
-    border-radius: 22px;
+    background: #ed86b8;
+    color: #211b21;
 
-    text-align: center;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-.manga-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(237, 134, 182, 0.55);
+.profile-page input[type="file"]::file-selector-button:hover {
+    background: #f29bc5;
 }
 
-.manga-card h3 {
-    margin: 0 0 10px;
+/* Profil butonları */
 
-    color: #ed86b6;
+.profile-page .profile-button,
+.profile-page .upload-button,
+.profile-page #upload-avatar,
+.profile-page #select-avatar {
+    margin-top: 15px;
 }
 
-.manga-card p {
-    color: #d9ccd6;
-    line-height: 1.6;
+/* Çıkış */
+
+.profile-page .logout-button,
+.profile-page #logout-button {
+    margin-top: 25px;
 }
 
 /* =========================================================
@@ -345,219 +584,130 @@ main > p {
    ========================================================= */
 
 footer {
-    width: 100%;
-
-    margin-top: 70px;
-    padding: 25px 20px;
-
+    color: #b9aab5;
     text-align: center;
-
-    color: #a99eaa;
-
     font-size: 14px;
+    padding: 35px 20px;
 }
 
 /* =========================================================
-   AUTH SAYFASI
+   RESPONSIVE
    ========================================================= */
 
-.auth-box {
-    width: min(520px, calc(100% - 32px));
+@media (max-width: 800px) {
 
-    margin: 70px auto;
-
-    padding: 38px 34px;
-
-    background: rgba(31, 27, 34, 0.96);
-
-    border: 1px solid rgba(237, 134, 182, 0.25);
-    border-radius: 28px;
-
-    box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.3);
-
-    text-align: center;
-}
-
-.auth-box h1 {
-    margin: 0 0 12px;
-
-    color: #ed86b6;
-
-    font-size: 40px;
-}
-
-.auth-box h2 {
-    color: #f5eaf2;
-}
-
-.auth-subtitle {
-    color: #cbbbc7;
-}
-
-.input-group {
-    width: 100%;
-    margin: 20px 0;
-
-    text-align: left;
-}
-
-.input-group label {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #eadce6;
-}
-
-.input-group input {
-    width: 100%;
-
-    padding: 15px 16px;
-
-    border: 1px solid #625563;
-    border-radius: 15px;
-
-    background: #211d23;
-    color: #f5eaf2;
-
-    font-size: 16px;
-
-    outline: none;
-}
-
-.input-group input:focus {
-    border-color: #ed86b6;
-
-    box-shadow:
-        0 0 0 3px rgba(237, 134, 182, 0.12);
-}
-
-.auth-button {
-    width: 100%;
-
-    margin-top: 8px;
-    padding: 15px;
-
-    border: none;
-    border-radius: 15px;
-
-    background: #ed86b6;
-    color: #211d23;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.auth-button:hover {
-    background: #f39ac4;
-    transform: translateY(-1px);
-}
-
-.switch-button,
-.forgot-button {
-    border: none;
-    background: transparent;
-
-    color: #ed86b6;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-.forgot-button {
-    margin: 18px 0;
-    color: #cbbbc7;
-}
-
-.switch-text {
-    color: #cbbbc7;
-}
-
-/* =========================================================
-   PROFİL
-   ========================================================= */
-
-.profile-container {
-    width: min(1100px, calc(100% - 32px));
-
-    margin: 45px auto;
-
-    padding: 40px;
-
-    background: rgba(31, 27, 34, 0.90);
-
-    border-radius: 28px;
-
-    border: 1px solid rgba(237, 134, 182, 0.2);
-}
-
-/* =========================================================
-   MOBİL
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    header {
-        padding: 22px 15px;
+    .site-header {
+        padding: 20px 15px;
     }
 
     .logo {
         font-size: 34px;
-        margin-bottom: 16px;
+        letter-spacing: 5px;
+        margin-bottom: 18px;
     }
 
     .main-nav {
-        gap: 16px;
+        gap: 16px 22px;
+    }
+
+    .main-nav a {
+        font-size: 15px;
+    }
+
+    .page-content {
+        width: min(100% - 25px, 700px);
+        padding-top: 35px;
+    }
+
+    .hero-section,
+    .hero,
+    .home-hero {
+        margin-top: 35px;
+        padding: 55px 25px;
+        border-radius: 24px;
+    }
+
+    .hero-section h1,
+    .hero h1,
+    .home-hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-section p,
+    .hero p,
+    .home-hero p {
+        font-size: 17px;
+    }
+
+    .profile-page .profile-container {
+        width: calc(100% - 25px);
+        padding-top: 35px;
+    }
+
+    .profile-page .profile-card,
+    .profile-page .profile-box {
+        padding: 25px 20px;
+    }
+
+    .profile-page h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .main-nav {
+        gap: 12px 16px;
     }
 
     .main-nav a {
         font-size: 14px;
     }
 
-    main {
-        padding: 35px 15px 60px;
+    .hero-section,
+    .hero,
+    .home-hero {
+        padding: 45px 20px;
     }
 
-    .hero {
-        margin-top: 35px;
-        padding: 50px 24px;
-        border-radius: 24px;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .page-card {
-        padding: 30px 22px;
-        border-radius: 22px;
-    }
-
-    .page-card h1 {
-        font-size: 34px;
-    }
-
-    .page-card h2 {
-        font-size: 26px;
-    }
-
-    .page-card p {
-        font-size: 16px;
+    .hero-section h1,
+    .hero h1,
+    .home-hero h1 {
+        font-size: 32px;
     }
 
     .auth-box {
-        margin: 35px auto;
         padding: 30px 20px;
+        margin-top: 35px;
+    }
+
+    .profile-page .profile-avatar,
+    .profile-page .profile-image,
+    .profile-page .profile-photo,
+    .profile-page .avatar,
+    .profile-page #profile-avatar,
+    .profile-page #profile-image,
+    .profile-page .avatar-wrapper,
+    .profile-page .profile-photo-wrapper,
+    .profile-page .profile-avatar-wrapper {
+        width: 170px !important;
+        height: 170px !important;
+
+        min-width: 170px !important;
+        min-height: 170px !important;
+
+        max-width: 170px !important;
+        max-height: 170px !important;
+    }
+
+    .profile-page .avatar-wrapper img,
+    .profile-page .profile-photo-wrapper img,
+    .profile-page .profile-avatar-wrapper img {
+        width: 170px !important;
+        height: 170px !important;
     }
 }
