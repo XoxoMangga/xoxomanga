@@ -23,11 +23,14 @@
         <a href="manga.html">Manga</a>
         <a href="manhwa.html">Manhwa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="profil.html">Profil</a>
-        <a href="auth.html">Giriş Yap</a>
+
+        <a href="auth.html" id="authNavLink">
+            Giriş Yap
+        </a>
     </nav>
 
 </header>
+
 
 <main>
 
@@ -49,6 +52,7 @@
 
     </section>
 
+
     <section class="upcoming">
 
         <h2>Yakında</h2>
@@ -65,9 +69,69 @@
 
 </main>
 
+
 <footer class="site-footer">
-    © 2026 XOXO Manga
+
+    <p>
+        © 2026 XOXO Manga
+    </p>
+
 </footer>
+
+
+<script type="module">
+
+    import { createClient }
+    from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+    const supabase = createClient(
+
+        "https://gldvzlfuupettcauexfy.supabase.co",
+
+        "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H"
+
+    );
+
+
+    async function updateAuthMenu() {
+
+        const authNavLink =
+            document.getElementById("authNavLink");
+
+        if (!authNavLink) return;
+
+
+        const {
+            data: { session }
+        } = await supabase.auth.getSession();
+
+
+        if (session) {
+
+            authNavLink.textContent = "Profil";
+            authNavLink.href = "profil.html";
+
+        } else {
+
+            authNavLink.textContent = "Giriş Yap";
+            authNavLink.href = "auth.html";
+
+        }
+
+    }
+
+
+    updateAuthMenu();
+
+
+    supabase.auth.onAuthStateChange(() => {
+
+        updateAuthMenu();
+
+    });
+
+</script>
 
 </body>
 </html>
