@@ -1,51 +1,37 @@
 /* =========================================================
-   XOXO MANGA — ANA STİL DOSYASI
+   XOXO MANGA - ANA SITE STILI
+   Ana Sayfa / Manga / Manhwa / Hakkımızda
    ========================================================= */
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
+    margin: 0;
+    padding: 0;
     min-height: 100%;
-    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
+
     font-family: Arial, Helvetica, sans-serif;
-    color: #f7eaf3;
+    color: #f5eaf2;
+
     background:
         linear-gradient(
-            rgba(35, 29, 37, 0.70),
-            rgba(35, 29, 37, 0.78)
+            rgba(35, 30, 36, 0.72),
+            rgba(35, 30, 36, 0.82)
         ),
-        url("bg.jpg") center center / cover fixed no-repeat;
-    background-color: #28242b;
-}
+        url("bg.jpg");
 
-/* =========================================================
-   GENEL
-   ========================================================= */
-
-a {
-    color: #f3a0c5;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ffc6df;
-}
-
-button,
-input {
-    font-family: inherit;
-}
-
-button {
-    cursor: pointer;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 /* =========================================================
@@ -54,599 +40,304 @@ button {
 
 header {
     width: 100%;
-    min-height: 145px;
-    padding: 24px 20px 20px;
+    margin: 0;
+    padding: 26px 20px 22px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background: rgba(25, 21, 27, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
-    background: rgba(30, 25, 32, 0.88);
-    border-bottom: 1px solid rgba(244, 145, 190, 0.16);
-    backdrop-filter: blur(8px);
+    text-align: center;
 }
 
 .logo {
-    color: #f28bb9;
-    font-size: 48px;
-    font-weight: 900;
-    letter-spacing: 7px;
-    line-height: 1;
+    margin: 0 0 20px;
+
+    color: #ed86b6;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 5px;
+
     text-align: center;
-
-    text-shadow:
-        0 0 10px rgba(242, 139, 185, 0.22),
-        0 0 25px rgba(242, 139, 185, 0.12);
-
-    margin-bottom: 28px;
 }
 
 .main-nav {
     width: 100%;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+
+    gap: 32px;
+
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav a {
-    color: #f8edf5;
+    color: #f6eaf2;
+    text-decoration: none;
+
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 600;
 
     transition:
         color 0.2s ease,
-        transform 0.2s ease,
-        text-shadow 0.2s ease;
+        transform 0.2s ease;
 }
 
 .main-nav a:hover {
-    color: #f28bb9;
+    color: #ed86b6;
     transform: translateY(-1px);
-
-    text-shadow:
-        0 0 10px rgba(242, 139, 185, 0.45);
 }
 
 /* =========================================================
-   ANA İÇERİK
+   GENEL SAYFA ALANI
    ========================================================= */
 
 main {
     width: 100%;
     min-height: calc(100vh - 145px);
+
+    margin: 0;
+    padding: 55px 24px 80px;
 }
 
-.container {
-    width: min(1200px, calc(100% - 40px));
+/*
+   Sayfa içeriklerini ortalar.
+   Soldan kesilme problemini engeller.
+*/
+
+.page-container {
+    width: min(1100px, 100%);
     margin: 0 auto;
-    padding: 45px 0;
 }
 
 /* =========================================================
-   ANGEL DECORATION
+   SÜSLEMELER
    ========================================================= */
 
 .angel-decoration {
-    color: #f7c9df;
-    font-size: 25px;
-    text-align: center;
-    letter-spacing: 8px;
-    margin-bottom: 18px;
+    color: #f8dceb;
 
-    text-shadow:
-        0 0 10px rgba(255, 190, 220, 0.35);
+    font-size: 25px;
+    letter-spacing: 8px;
+
+    text-align: center;
+
+    margin-bottom: 18px;
 }
 
 /* =========================================================
-   GENEL BAŞLIKLAR
+   ANA SAYFA HERO
    ========================================================= */
 
-h1,
-h2,
-h3 {
-    color: #f8eaf3;
+.hero {
+    width: min(910px, 100%);
+    margin: 75px auto 0;
+
+    padding: 75px 45px;
+
+    background: rgba(31, 27, 34, 0.93);
+
+    border: 1px solid rgba(237, 134, 182, 0.25);
+    border-radius: 32px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.28);
 }
 
-h1 {
-    font-size: 38px;
+.hero h1 {
+    margin: 0 0 22px;
+
+    color: #ed86b6;
+
+    font-size: clamp(38px, 5vw, 56px);
+    font-weight: 800;
 }
 
-h2 {
-    font-size: 28px;
-}
+.hero p {
+    margin: 0 0 30px;
 
-h3 {
-    font-size: 22px;
-}
-
-p {
     color: #eadce6;
+
+    font-size: 19px;
     line-height: 1.7;
 }
 
-/* =========================================================
-   AUTH SAYFASI
-   ========================================================= */
+.hero-button {
+    display: inline-block;
 
-.auth-box {
-    width: min(470px, calc(100% - 30px));
-    margin: 55px auto;
+    padding: 14px 30px;
 
-    padding: 38px 34px 30px;
+    border-radius: 14px;
 
-    background: rgba(38, 32, 41, 0.94);
-    border: 1px solid rgba(244, 151, 194, 0.28);
-    border-radius: 28px;
+    background: #ed86b6;
+    color: #211d23;
 
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35),
-        inset 0 0 35px rgba(255, 180, 215, 0.025);
-
-    backdrop-filter: blur(12px);
-}
-
-.auth-box h1 {
-    color: #f18bbb;
-    text-align: center;
-    font-size: 38px;
-    margin-bottom: 8px;
-}
-
-.auth-subtitle {
-    color: #cdbbca;
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.auth-box h2 {
-    color: #f6dce9;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-/* =========================================================
-   INPUTLAR
-   ========================================================= */
-
-.input-group {
-    margin-bottom: 19px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-
-    color: #eadce6;
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.input-group input,
-.auth-box input[type="text"],
-.auth-box input[type="email"],
-.auth-box input[type="password"] {
-    width: 100%;
-    height: 52px;
-
-    padding: 0 17px;
-
-    border: 1px solid #5b505d;
-    border-radius: 15px;
-
-    outline: none;
-
-    background: rgba(26, 23, 29, 0.88);
-    color: #f8edf5;
+    text-decoration: none;
 
     font-size: 16px;
+    font-weight: 700;
 
     transition:
-        border-color 0.2s ease,
+        transform 0.2s ease,
         box-shadow 0.2s ease,
         background 0.2s ease;
 }
 
-.input-group input::placeholder {
-    color: #8f8490;
-}
+.hero-button:hover {
+    background: #f39ac4;
 
-.input-group input:focus {
-    border-color: #ed8fbb;
-
-    background: rgba(31, 26, 34, 0.96);
+    transform: translateY(-2px);
 
     box-shadow:
-        0 0 0 3px rgba(237, 143, 187, 0.10),
-        0 0 20px rgba(237, 143, 187, 0.08);
+        0 8px 22px rgba(237, 134, 182, 0.25);
 }
 
 /* =========================================================
-   AUTH BUTONLARI
+   YAKINDA
    ========================================================= */
 
-.auth-button {
-    width: 100%;
-    height: 52px;
+.coming-soon {
+    width: min(900px, 100%);
 
-    margin-top: 7px;
+    margin: 80px auto 0;
 
-    border: none;
-    border-radius: 15px;
-
-    background: #eb88b7;
-    color: #211c22;
-
-    font-size: 16px;
-    font-weight: 800;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+    text-align: center;
 }
 
-.auth-button:hover {
-    background: #f19bc3;
-    transform: translateY(-1px);
+.coming-soon h2 {
+    margin: 0 0 20px;
+
+    color: #ed86b6;
+
+    font-size: 34px;
+}
+
+.coming-soon p {
+    margin: 0;
+
+    color: #eadce6;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   HAKKIMIZDA / MANGA / MANHWA
+   ========================================================= */
+
+.page-card {
+    width: min(1000px, 100%);
+
+    margin: 45px auto 0;
+
+    padding: 50px;
+
+    background: rgba(31, 27, 34, 0.90);
+
+    border: 1px solid rgba(237, 134, 182, 0.20);
+    border-radius: 28px;
 
     box-shadow:
-        0 8px 25px rgba(235, 136, 183, 0.20);
+        0 18px 45px rgba(0, 0, 0, 0.22);
 }
 
-.forgot-button,
-.switch-button {
-    display: block;
+.page-card h1 {
+    margin: 0 0 22px;
 
+    color: #ed86b6;
+
+    font-size: 42px;
+}
+
+.page-card h2 {
+    margin: 35px 0 15px;
+
+    color: #ed86b6;
+
+    font-size: 30px;
+}
+
+.page-card p {
+    margin: 0 0 18px;
+
+    color: #eadce6;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Eğer başlık direkt body/main içindeyse */
+
+main > h1,
+main > h2 {
+    width: min(1000px, 100%);
     margin-left: auto;
     margin-right: auto;
 
-    border: none;
-    background: transparent;
-
-    color: #ef91bd;
-
-    font-size: 15px;
-    font-weight: 700;
+    color: #ed86b6;
 }
 
-.forgot-button {
-    margin-top: 17px;
+main > p {
+    width: min(1000px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #eadce6;
+    line-height: 1.8;
 }
 
-.forgot-button:hover,
-.switch-button:hover {
-    color: #ffc0db;
-    text-decoration: underline;
+/* =========================================================
+   MANGA / MANHWA KARTLARI
+   ========================================================= */
+
+.manga-grid {
+    width: min(1100px, 100%);
+
+    margin: 40px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 24px;
 }
 
-.switch-text {
+.manga-card {
+    padding: 24px;
+
+    background: rgba(31, 27, 34, 0.92);
+
+    border: 1px solid rgba(237, 134, 182, 0.18);
+    border-radius: 22px;
+
     text-align: center;
-    color: #bbaebb;
-    margin-top: 25px;
-    margin-bottom: 7px;
-}
-
-.switch-button {
-    font-size: 16px;
-}
-
-#message {
-    min-height: 24px;
-    margin-top: 20px;
-
-    color: #f493ba;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.auth-box footer {
-    margin-top: 35px;
-
-    color: #8e7f8e;
-    text-align: center;
-    font-size: 13px;
-}
-
-/* =========================================================
-   PROFİL SAYFASI
-   ========================================================= */
-
-.profile-page {
-    width: min(1150px, calc(100% - 40px));
-    min-height: calc(100vh - 145px);
-
-    margin: 0 auto;
-    padding: 45px 0 70px;
-}
-
-.profile-page::before {
-    content: "✦  🪽  ✦";
-
-    display: block;
-
-    color: #f5c8df;
-    font-size: 22px;
-    letter-spacing: 7px;
-
-    margin-bottom: 8px;
-}
-
-.profile-page h1,
-.profile-page h2 {
-    color: #f8eaf3;
-}
-
-.profile-page h1 {
-    font-size: 42px;
-    margin-bottom: 30px;
-}
-
-.profile-card {
-    width: 100%;
-
-    padding: 35px;
-
-    background: rgba(37, 31, 40, 0.91);
-
-    border: 1px solid rgba(244, 151, 194, 0.22);
-    border-radius: 25px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.28);
-
-    backdrop-filter: blur(10px);
-}
-
-/* =========================================================
-   PROFİL FOTOĞRAFI
-   ========================================================= */
-
-.profile-avatar,
-.avatar {
-    width: 210px;
-    height: 210px;
-
-    display: block;
-
-    margin: 0 auto 28px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border: 2px solid #ed8fbb;
-
-    box-shadow:
-        0 0 0 5px rgba(237, 143, 187, 0.07),
-        0 0 30px rgba(237, 143, 187, 0.16);
-
-    background: #211d23;
-}
-
-.profile-info {
-    margin-top: 20px;
-}
-
-.profile-info p {
-    margin: 5px 0;
-    color: #f0e5ed;
-}
-
-/* =========================================================
-   PROFİL BİLGİ ALANI
-   ========================================================= */
-
-.profile-content {
-    width: 100%;
-}
-
-.profile-content,
-.profile-info {
-    color: #eee3eb;
-}
-
-.profile-content strong,
-.profile-info strong {
-    color: #f29ac2;
-}
-
-/* =========================================================
-   DOSYA SEÇME
-   ========================================================= */
-
-.profile-page input[type="file"],
-.profile-card input[type="file"],
-input[type="file"] {
-    width: 100%;
-
-    margin: 20px 0;
-
-    padding: 13px;
-
-    color: #eadfe7;
-
-    background: rgba(27, 23, 29, 0.88);
-
-    border: 1px solid #5b505d;
-    border-radius: 14px;
-
-    font-size: 14px;
-}
-
-.profile-page input[type="file"]::file-selector-button,
-.profile-card input[type="file"]::file-selector-button,
-input[type="file"]::file-selector-button {
-    margin-right: 12px;
-
-    padding: 9px 15px;
-
-    border: none;
-    border-radius: 9px;
-
-    background: #eb88b7;
-    color: #241d23;
-
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-.profile-page input[type="file"]::file-selector-button:hover,
-.profile-card input[type="file"]::file-selector-button:hover,
-input[type="file"]::file-selector-button:hover {
-    background: #f5a0c7;
-}
-
-/* =========================================================
-   PROFİL BUTONLARI
-   ========================================================= */
-
-.profile-page button,
-.profile-card button {
-    min-height: 48px;
-
-    padding: 0 24px;
-
-    border-radius: 13px;
-
-    border: 1px solid rgba(239, 145, 188, 0.35);
-
-    background: #eb88b7;
-    color: #241d23;
-
-    font-size: 15px;
-    font-weight: 800;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.profile-page button:hover,
-.profile-card button:hover {
-    background: #f29ac2;
-    transform: translateY(-1px);
-
-    box-shadow:
-        0 8px 25px rgba(235, 136, 183, 0.18);
-}
-
-/* ÇIKIŞ BUTONU */
-
-#logout-button,
-.logout-button {
-    width: 100%;
-
-    margin-top: 25px;
-
-    background: transparent !important;
-    color: #e8dce5 !important;
-
-    border: 1px solid #5b505d !important;
-}
-
-#logout-button:hover,
-.logout-button:hover {
-    color: #f29ac2 !important;
-    border-color: #ed8fbb !important;
-    background: rgba(237, 143, 187, 0.05) !important;
-}
-
-/* =========================================================
-   PROFİLDE CLASS OLMADAN KULLANILAN ELEMENTLER İÇİN
-   ========================================================= */
-
-body > div:not(.auth-box) {
-    color: #f1e5ed;
-}
-
-body > div h1,
-body > div h2,
-body > div h3 {
-    color: #f7eaf2;
-}
-
-body > div p {
-    color: #e5d8e1;
-}
-
-body > div input {
-    color: #f5eaf1;
-}
-
-/* =========================================================
-   GENEL SAYFA İÇERİKLERİ
-   ========================================================= */
-
-.hero,
-.about,
-.manga-section,
-.manhwa-section,
-.content-section {
-    width: min(1150px, calc(100% - 40px));
-    margin: 0 auto;
-    padding: 55px 0;
-}
-
-.hero h1,
-.about h1,
-.manga-section h1,
-.manhwa-section h1,
-.content-section h1 {
-    color: #f5e6ef;
-}
-
-.hero p,
-.about p,
-.manga-section p,
-.manhwa-section p,
-.content-section p {
-    color: #dfd2db;
-}
-
-/* =========================================================
-   KARTLAR
-   ========================================================= */
-
-.card,
-.manga-card,
-.manhwa-card {
-    background: rgba(39, 33, 42, 0.88);
-
-    border: 1px solid rgba(244, 151, 194, 0.18);
-    border-radius: 18px;
-
-    padding: 22px;
-
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.20);
 
     transition:
         transform 0.2s ease,
         border-color 0.2s ease;
 }
 
-.card:hover,
-.manga-card:hover,
-.manhwa-card:hover {
-    transform: translateY(-3px);
+.manga-card:hover {
+    transform: translateY(-5px);
 
-    border-color: rgba(244, 151, 194, 0.35);
+    border-color: rgba(237, 134, 182, 0.55);
 }
 
-.card h2,
-.card h3,
-.manga-card h2,
-.manga-card h3,
-.manhwa-card h2,
-.manhwa-card h3 {
-    color: #f29ac2;
+.manga-card h3 {
+    margin: 0 0 10px;
+
+    color: #ed86b6;
+}
+
+.manga-card p {
+    color: #d9ccd6;
+    line-height: 1.6;
 }
 
 /* =========================================================
@@ -654,11 +345,157 @@ body > div input {
    ========================================================= */
 
 footer {
-    color: #988a97;
+    width: 100%;
+
+    margin-top: 70px;
+    padding: 25px 20px;
+
+    text-align: center;
+
+    color: #a99eaa;
+
+    font-size: 14px;
 }
 
-footer a {
-    color: #ee91ba;
+/* =========================================================
+   AUTH SAYFASI
+   ========================================================= */
+
+.auth-box {
+    width: min(520px, calc(100% - 32px));
+
+    margin: 70px auto;
+
+    padding: 38px 34px;
+
+    background: rgba(31, 27, 34, 0.96);
+
+    border: 1px solid rgba(237, 134, 182, 0.25);
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.3);
+
+    text-align: center;
+}
+
+.auth-box h1 {
+    margin: 0 0 12px;
+
+    color: #ed86b6;
+
+    font-size: 40px;
+}
+
+.auth-box h2 {
+    color: #f5eaf2;
+}
+
+.auth-subtitle {
+    color: #cbbbc7;
+}
+
+.input-group {
+    width: 100%;
+    margin: 20px 0;
+
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #eadce6;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid #625563;
+    border-radius: 15px;
+
+    background: #211d23;
+    color: #f5eaf2;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #ed86b6;
+
+    box-shadow:
+        0 0 0 3px rgba(237, 134, 182, 0.12);
+}
+
+.auth-button {
+    width: 100%;
+
+    margin-top: 8px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #ed86b6;
+    color: #211d23;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.auth-button:hover {
+    background: #f39ac4;
+    transform: translateY(-1px);
+}
+
+.switch-button,
+.forgot-button {
+    border: none;
+    background: transparent;
+
+    color: #ed86b6;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.forgot-button {
+    margin: 18px 0;
+    color: #cbbbc7;
+}
+
+.switch-text {
+    color: #cbbbc7;
+}
+
+/* =========================================================
+   PROFİL
+   ========================================================= */
+
+.profile-container {
+    width: min(1100px, calc(100% - 32px));
+
+    margin: 45px auto;
+
+    padding: 40px;
+
+    background: rgba(31, 27, 34, 0.90);
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(237, 134, 182, 0.2);
 }
 
 /* =========================================================
@@ -668,210 +505,59 @@ footer a {
 @media (max-width: 700px) {
 
     header {
-        min-height: 125px;
-        padding: 20px 12px;
+        padding: 22px 15px;
     }
 
     .logo {
-        font-size: 36px;
-        letter-spacing: 5px;
-        margin-bottom: 20px;
+        font-size: 34px;
+        margin-bottom: 16px;
     }
 
     .main-nav {
-        gap: 15px;
+        gap: 16px;
     }
 
     .main-nav a {
         font-size: 14px;
     }
 
-    .auth-box {
-        margin: 25px auto;
-        padding: 30px 22px 25px;
+    main {
+        padding: 35px 15px 60px;
+    }
+
+    .hero {
+        margin-top: 35px;
+        padding: 50px 24px;
+        border-radius: 24px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .page-card {
+        padding: 30px 22px;
         border-radius: 22px;
     }
 
-    .auth-box h1 {
-        font-size: 32px;
-    }
-
-    .profile-page {
-        width: calc(100% - 25px);
-        padding-top: 30px;
-    }
-
-    .profile-page h1 {
+    .page-card h1 {
         font-size: 34px;
     }
 
-    .profile-card {
-        padding: 22px 17px;
+    .page-card h2 {
+        font-size: 26px;
     }
 
-    .profile-avatar,
-    .avatar {
-        width: 165px;
-        height: 165px;
-    }
-
-    .hero,
-    .about,
-    .manga-section,
-    .manhwa-section,
-    .content-section {
-        width: calc(100% - 25px);
-        padding: 35px 0;
-    }
-}
-
-/* =========================================================
-   TELEFONDA ÇOK DAR EKRAN
-   ========================================================= */
-
-@media (max-width: 430px) {
-
-    .main-nav {
-        gap: 10px;
-    }
-
-    .main-nav a {
-        font-size: 13px;
-    }
-
-    .logo {
-        font-size: 31px;
+    .page-card p {
+        font-size: 16px;
     }
 
     .auth-box {
-        width: calc(100% - 20px);
-    }
-
-    .profile-avatar,
-    .avatar {
-        width: 145px;
-        height: 145px;
-    }
-}
-/* =========================================================
-   XOXO — YATAY TAŞMA / SAYFA KAYMASI DÜZELTMESİ
-   ========================================================= */
-
-html {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Header ekranı aşmasın */
-header {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-/* Logo taşmasın */
-.logo {
-    max-width: 100%;
-    text-align: center;
-    overflow: hidden;
-}
-
-/* Menü ekranı aşmasın */
-.main-nav {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    overflow: hidden;
-}
-
-/* Tüm ana içerikler ekranın içinde kalsın */
-main,
-.container,
-.hero,
-.about,
-.manga-section,
-.manhwa-section,
-.content-section,
-.profile-page {
-    width: 100%;
-    max-width: 1150px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Görseller ekranı büyütmesin */
-img,
-video,
-iframe {
-    max-width: 100%;
-}
-
-/* Uzun yazılar sayfayı genişletmesin */
-p,
-h1,
-h2,
-h3,
-a {
-    overflow-wrap: break-word;
-}
-
-/* =========================================================
-   ANA SAYFA
-   ========================================================= */
-
-.hero,
-.about,
-.manga-section,
-.manhwa-section,
-.content-section {
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-/* =========================================================
-   MOBİL / DAR EKRAN
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    header {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .logo {
-        font-size: 36px;
-        letter-spacing: 5px;
-    }
-
-    .main-nav {
-        gap: 14px;
-    }
-
-    .main-nav a {
-        font-size: 14px;
-    }
-
-    .hero,
-    .about,
-    .manga-section,
-    .manhwa-section,
-    .content-section {
-        width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
+        margin: 35px auto;
+        padding: 30px 20px;
     }
 }
