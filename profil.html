@@ -2,15 +2,23 @@
 <html lang="tr">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Profil | XOXO</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+
 <body>
+
 
 <header class="site-header">
 
@@ -19,95 +27,167 @@
     </div>
 
     <nav class="main-nav">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="manga.html">Manga</a>
-        <a href="manhwa.html">Manhwa</a>
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="profil.html">Profil</a>
-        <a href="auth.html">Giriş Yap</a>
+
+        <a href="index.html">
+            Ana Sayfa
+        </a>
+
+        <a href="manga.html">
+            Manga
+        </a>
+
+        <a href="manhwa.html">
+            Manhwa
+        </a>
+
+        <a href="hakkimizda.html">
+            Hakkımızda
+        </a>
+
+        <a href="auth.html" id="authNavLink">
+            Giriş Yap
+        </a>
+
     </nav>
 
 </header>
 
-<main class="profile-page">
 
-    <section class="profile">
+<main>
 
-        <div class="angel">
-            ✦ 🪽 ✦
+    <section class="profile-page">
+
+        <div class="profile">
+
+            <div class="angel">
+                ✦ 🪽 ✦
+            </div>
+
+            <h2>
+                Profil
+            </h2>
+
+            <p id="userEmail">
+                Yükleniyor...
+            </p>
+
+            <button
+                id="logoutButton"
+                class="auth-button"
+                type="button"
+            >
+                Çıkış Yap
+            </button>
+
         </div>
-
-        <h1>Profilim</h1>
-
-        <p class="profile-email" id="profileEmail">
-            Kullanıcı bilgileri yükleniyor...
-        </p>
-
-        <button
-            class="logout-button"
-            id="logoutBtn"
-            type="button"
-        >
-            Çıkış Yap
-        </button>
 
     </section>
 
 </main>
 
-<footer class="site-footer">
-    © 2026 XOXO Manga
+
+<footer>
+
+    <p>
+        © 2026 XOXO Manga
+    </p>
+
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
+<script type="module">
 
-const SUPABASE_URL =
-    "https://gldvzlfuupettcauexfy.supabase.co";
+import { createClient }
+from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H";
 
-const db = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
+const supabase = createClient(
+
+    "https://gldvzlfuupettcauexfy.supabase.co",
+
+    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H"
+
 );
+
+
+const authNavLink =
+    document.getElementById("authNavLink");
+
+const userEmail =
+    document.getElementById("userEmail");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
 
 async function loadProfile() {
 
     const {
-        data: {
-            user
-        }
-    } = await db.auth.getUser();
+        data: { session }
+    } = await supabase.auth.getSession();
 
-    if (!user) {
+
+    if (!session) {
+
         window.location.href = "auth.html";
+
         return;
+
     }
 
-    document.getElementById("profileEmail").textContent =
-        user.email || "E-posta bulunamadı.";
+
+    userEmail.textContent =
+        session.user.email;
+
+
+    authNavLink.textContent =
+        "Profil";
+
+    authNavLink.href =
+        "profil.html";
+
 }
 
-document
-    .getElementById("logoutBtn")
-    .addEventListener("click", async function () {
 
-        const { error } = await db.auth.signOut();
+logoutButton.addEventListener(
+    "click",
+    async () => {
+
+        logoutButton.disabled = true;
+
+        logoutButton.textContent =
+            "Çıkış yapılıyor...";
+
+
+        const { error } =
+            await supabase.auth.signOut();
+
 
         if (error) {
-            alert(error.message);
+
+            console.error(error);
+
+            logoutButton.disabled = false;
+
+            logoutButton.textContent =
+                "Çıkış Yap";
+
             return;
+
         }
 
-        window.location.href = "index.html";
-    });
+
+        window.location.href =
+            "index.html";
+
+    }
+);
+
 
 loadProfile();
 
 </script>
+
 
 </body>
 </html>
