@@ -9,14 +9,11 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-
     background: #1e1b20;
     color: #f8eaf2;
-
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
-
-
 /* =========================================================
    HEADER
 ========================================================= */
@@ -31,13 +28,10 @@ header {
 
 header h1 {
     margin: 0;
-
     color: #ed8fba;
-
     font-size: 36px;
     letter-spacing: 4px;
 }
-
 nav {
     margin-top: 18px;
 }
@@ -178,13 +172,10 @@ main {
 
 .about h2 {
     color: #ed8fba;
-
-    font-size: 34px;
 }
 
 .about p {
     color: #cfc5cd;
-
     line-height: 1.8;
 }
 
