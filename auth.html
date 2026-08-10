@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Giriş Yap | XOXO Manga</title>
+    <title>Giriş Yap - XOXO Manga</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -19,27 +20,12 @@
     </div>
 
     <nav class="main-nav">
-
-        <a href="index.html">
-            Ana Sayfa
-        </a>
-
-        <a href="manga.html">
-            Manga
-        </a>
-
-        <a href="manhwa.html">
-            Manhwa
-        </a>
-
-        <a href="hakkimizda.html">
-            Hakkımızda
-        </a>
-
-        <a href="auth.html" id="authNavLink">
-            Giriş Yap
-        </a>
-
+        <a href="index.html">Ana Sayfa</a>
+        <a href="manga.html">Manga</a>
+        <a href="manhwa.html">Manhwa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="profil.html">Profil</a>
+        <a href="auth.html">Giriş Yap</a>
     </nav>
 
 </header>
@@ -47,15 +33,13 @@
 
 <main class="auth-page">
 
-    <section class="auth-box">
+    <div class="auth-box">
 
         <div class="angel-decoration">
             ✦ 🪽 ✦
         </div>
 
-        <h1>
-            XOXO
-        </h1>
+        <h1>XOXO</h1>
 
         <p class="auth-subtitle">
             Manga dünyasına hoş geldin ♡
@@ -64,58 +48,47 @@
 
         <!-- GİRİŞ -->
 
-        <div id="loginSection">
+        <div id="login-section">
 
-            <h2>
-                Giriş Yap
-            </h2>
-
+            <h2>Giriş Yap</h2>
 
             <div class="input-group">
-
-                <label for="loginEmail">
-                    E-posta
-                </label>
+                <label for="login-email">E-posta</label>
 
                 <input
                     type="email"
-                    id="loginEmail"
+                    id="login-email"
                     placeholder="E-posta adresin"
                     autocomplete="email"
                 >
-
             </div>
 
 
             <div class="input-group">
-
-                <label for="loginPassword">
-                    Şifre
-                </label>
+                <label for="login-password">Şifre</label>
 
                 <input
                     type="password"
-                    id="loginPassword"
+                    id="login-password"
                     placeholder="Şifren"
                     autocomplete="current-password"
                 >
-
             </div>
 
 
             <button
-                class="auth-button"
-                id="loginButton"
                 type="button"
+                class="auth-button"
+                id="login-button"
             >
                 Giriş Yap
             </button>
 
 
             <button
-                class="forgot-button"
-                id="forgotButton"
                 type="button"
+                class="forgot-button"
+                id="forgot-button"
             >
                 Şifremi Unuttum
             </button>
@@ -126,9 +99,9 @@
             </p>
 
             <button
-                class="switch-button"
-                id="showRegisterButton"
                 type="button"
+                class="switch-button"
+                id="show-register"
             >
                 Kayıt Ol
             </button>
@@ -138,25 +111,23 @@
 
         <!-- KAYIT -->
 
-        <div id="registerSection" style="display: none;">
+        <div id="register-section" style="display:none;">
 
-            <h2>
-                Kayıt Ol
-            </h2>
+            <h2>Kayıt Ol</h2>
 
 
             <div class="input-group">
 
-                <label for="registerUsername">
+                <label for="register-username">
                     Kullanıcı Adı
                 </label>
 
                 <input
                     type="text"
-                    id="registerUsername"
+                    id="register-username"
                     placeholder="Kullanıcı adın"
-                    autocomplete="username"
                     maxlength="30"
+                    autocomplete="username"
                 >
 
             </div>
@@ -164,13 +135,13 @@
 
             <div class="input-group">
 
-                <label for="registerEmail">
+                <label for="register-email">
                     E-posta
                 </label>
 
                 <input
                     type="email"
-                    id="registerEmail"
+                    id="register-email"
                     placeholder="E-posta adresin"
                     autocomplete="email"
                 >
@@ -180,14 +151,14 @@
 
             <div class="input-group">
 
-                <label for="registerPassword">
+                <label for="register-password">
                     Şifre
                 </label>
 
                 <input
                     type="password"
-                    id="registerPassword"
-                    placeholder="Şifren"
+                    id="register-password"
+                    placeholder="En az 6 karakter"
                     autocomplete="new-password"
                 >
 
@@ -195,9 +166,9 @@
 
 
             <button
-                class="auth-button"
-                id="registerButton"
                 type="button"
+                class="auth-button"
+                id="register-button"
             >
                 Kayıt Ol
             </button>
@@ -208,17 +179,15 @@
             </p>
 
             <button
-                class="switch-button"
-                id="showLoginButton"
                 type="button"
+                class="switch-button"
+                id="show-login"
             >
                 Giriş Yap
             </button>
 
         </div>
 
-
-        <!-- MESAJ -->
 
         <div id="message"></div>
 
@@ -227,27 +196,23 @@
             © 2026 XOXO Manga
         </footer>
 
-    </section>
+    </div>
 
 </main>
 
 
-<script type="module">
-
-import { createClient }
-from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
+<script>
 
 /* =========================================================
    SUPABASE
 ========================================================= */
 
-const supabase = createClient(
+const SUPABASE_URL = "https://gldvz1fuupettcauexfy.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_LQRuadaAeDNPSQA1SA32qA_ddQP5g1H";
 
-    "https://gldvzlfuupettcauexfy.supabase.co",
-
-    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H"
-
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
 );
 
 
@@ -255,32 +220,18 @@ const supabase = createClient(
    ELEMENTLER
 ========================================================= */
 
-const loginSection =
-    document.getElementById("loginSection");
+const loginSection = document.getElementById("login-section");
+const registerSection = document.getElementById("register-section");
 
-const registerSection =
-    document.getElementById("registerSection");
+const loginButton = document.getElementById("login-button");
+const registerButton = document.getElementById("register-button");
 
-const loginButton =
-    document.getElementById("loginButton");
+const showRegister = document.getElementById("show-register");
+const showLogin = document.getElementById("show-login");
 
-const registerButton =
-    document.getElementById("registerButton");
+const forgotButton = document.getElementById("forgot-button");
 
-const forgotButton =
-    document.getElementById("forgotButton");
-
-const showRegisterButton =
-    document.getElementById("showRegisterButton");
-
-const showLoginButton =
-    document.getElementById("showLoginButton");
-
-const message =
-    document.getElementById("message");
-
-const authNavLink =
-    document.getElementById("authNavLink");
+const message = document.getElementById("message");
 
 
 /* =========================================================
@@ -290,445 +241,327 @@ const authNavLink =
 function showMessage(text, type = "") {
 
     message.textContent = text;
-
-    message.className = "";
-
-    if (type) {
-        message.classList.add(type);
-    }
+    message.className = type;
 
 }
 
 
 /* =========================================================
-   GİRİŞ / KAYIT GEÇİŞİ
+   GİRİŞ / KAYIT EKRANI
 ========================================================= */
 
-showRegisterButton.addEventListener(
-    "click",
-    () => {
+showRegister.addEventListener("click", () => {
 
-        loginSection.style.display = "none";
+    loginSection.style.display = "none";
+    registerSection.style.display = "block";
 
-        registerSection.style.display = "block";
+    showMessage("");
 
-        showMessage("");
-
-    }
-);
+});
 
 
-showLoginButton.addEventListener(
-    "click",
-    () => {
+showLogin.addEventListener("click", () => {
 
-        registerSection.style.display = "none";
+    registerSection.style.display = "none";
+    loginSection.style.display = "block";
 
-        loginSection.style.display = "block";
+    showMessage("");
 
-        showMessage("");
-
-    }
-);
+});
 
 
 /* =========================================================
-   GİRİŞ YAP
+   SAYFA AÇILDIĞINDA SESSION KONTROLÜ
+   SADECE AUTH SAYFASI PROFİLE YÖNLENDİRİR
 ========================================================= */
 
-loginButton.addEventListener(
-    "click",
-    async () => {
+async function checkExistingSession() {
 
-        const email =
-            document.getElementById("loginEmail")
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
+
+
+    if (session) {
+
+        window.location.replace("profil.html");
+
+    }
+
+}
+
+
+checkExistingSession();
+
+
+/* =========================================================
+   GİRİŞ
+========================================================= */
+
+loginButton.addEventListener("click", async () => {
+
+    const email =
+        document.getElementById("login-email").value.trim();
+
+    const password =
+        document.getElementById("login-password").value;
+
+
+    if (!email || !password) {
+
+        showMessage(
+            "E-posta ve şifreyi doldurmalısın.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    loginButton.disabled = true;
+    loginButton.textContent = "Giriş yapılıyor...";
+
+
+    const { error } =
+        await supabaseClient.auth.signInWithPassword({
+
+            email: email,
+            password: password
+
+        });
+
+
+    if (error) {
+
+        showMessage(
+            "E-posta veya şifre hatalı.",
+            "error"
+        );
+
+        loginButton.disabled = false;
+        loginButton.textContent = "Giriş Yap";
+
+        return;
+
+    }
+
+
+    showMessage(
+        "Giriş başarılı ♡",
+        "success"
+    );
+
+
+    /*
+       Burada sadece BİR KEZ yönlendiriyoruz.
+       Profil sayfası tekrar auth'a göndermediği için
+       redirect loop oluşmayacak.
+    */
+
+    setTimeout(() => {
+
+        window.location.replace("profil.html");
+
+    }, 300);
+
+});
+
+
+/* =========================================================
+   KAYIT
+========================================================= */
+
+registerButton.addEventListener("click", async () => {
+
+    const username =
+        document
+            .getElementById("register-username")
             .value
             .trim();
 
-        const password =
-            document.getElementById("loginPassword")
+    const email =
+        document
+            .getElementById("register-email")
+            .value
+            .trim();
+
+    const password =
+        document
+            .getElementById("register-password")
             .value;
 
 
-        if (!email || !password) {
-
-            showMessage(
-                "E-posta ve şifreyi doldur.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        loginButton.disabled = true;
-
-        loginButton.textContent =
-            "Giriş yapılıyor...";
-
-
-        const { data, error } =
-            await supabase.auth.signInWithPassword({
-
-                email: email,
-
-                password: password
-
-            });
-
-
-        if (error) {
-
-            showMessage(
-                error.message,
-                "error"
-            );
-
-            loginButton.disabled = false;
-
-            loginButton.textContent =
-                "Giriş Yap";
-
-            return;
-
-        }
-
+    if (!username || !email || !password) {
 
         showMessage(
-            "Giriş başarılı! ♡",
+            "Tüm alanları doldurmalısın.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (username.length < 3) {
+
+        showMessage(
+            "Kullanıcı adı en az 3 karakter olmalı.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (password.length < 6) {
+
+        showMessage(
+            "Şifre en az 6 karakter olmalı.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    registerButton.disabled = true;
+    registerButton.textContent = "Kayıt olunuyor...";
+
+
+    const { data, error } =
+        await supabaseClient.auth.signUp({
+
+            email: email,
+
+            password: password,
+
+            options: {
+
+                data: {
+
+                    username: username,
+
+                    avatar_url: ""
+
+                }
+
+            }
+
+        });
+
+
+    if (error) {
+
+        showMessage(
+            error.message,
+            "error"
+        );
+
+        registerButton.disabled = false;
+        registerButton.textContent = "Kayıt Ol";
+
+        return;
+
+    }
+
+
+    /*
+       E-posta doğrulama açıksa session null olabilir.
+       Bu durumda profile göndermiyoruz.
+    */
+
+    if (data.session) {
+
+        showMessage(
+            "Hesabın oluşturuldu ♡",
             "success"
         );
 
 
-        setTimeout(
-            () => {
+        setTimeout(() => {
 
-                window.location.href =
-                    "index.html";
+            window.location.replace("profil.html");
 
-            },
-            500
+        }, 300);
+
+    } else {
+
+        showMessage(
+            "Kayıt başarılı ♡ E-posta adresini doğrula.",
+            "success"
         );
 
-    }
-);
-
-
-/* =========================================================
-   KAYIT OL
-========================================================= */
-
-registerButton.addEventListener(
-    "click",
-    async () => {
-
-        const username =
-            document.getElementById("registerUsername")
-            .value
-            .trim();
-
-        const email =
-            document.getElementById("registerEmail")
-            .value
-            .trim();
-
-        const password =
-            document.getElementById("registerPassword")
-            .value;
-
-
-        /* KULLANICI ADI KONTROL */
-
-        if (!username) {
-
-            showMessage(
-                "Kullanıcı adı gir.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (username.length < 3) {
-
-            showMessage(
-                "Kullanıcı adı en az 3 karakter olmalı.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (!email || !password) {
-
-            showMessage(
-                "E-posta ve şifreyi doldur.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (password.length < 6) {
-
-            showMessage(
-                "Şifre en az 6 karakter olmalı.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        registerButton.disabled = true;
-
-        registerButton.textContent =
-            "Kayıt oluşturuluyor...";
-
-
-        /* SUPABASE KAYIT */
-
-        const { data, error } =
-            await supabase.auth.signUp({
-
-                email: email,
-
-                password: password,
-
-                options: {
-
-                    data: {
-
-                        username: username
-
-                    }
-
-                }
-
-            });
-
-
-        if (error) {
-
-            showMessage(
-                error.message,
-                "error"
-            );
-
-            registerButton.disabled = false;
-
-            registerButton.textContent =
-                "Kayıt Ol";
-
-            return;
-
-        }
-
-
-        /*
-            E-posta doğrulaması kapalıysa
-            kullanıcı direkt giriş yapmış olur.
-        */
-
-        if (data.session) {
-
-            showMessage(
-                "Kayıt başarılı! Hoş geldin ♡",
-                "success"
-            );
-
-
-            setTimeout(
-                () => {
-
-                    window.location.href =
-                        "index.html";
-
-                },
-                700
-            );
-
-
-        } else {
-
-            /*
-                Eğer Supabase tarafında
-                e-posta doğrulaması açıksa
-            */
-
-            showMessage(
-                "Kayıt başarılı! E-posta adresini kontrol et.",
-                "success"
-            );
-
-
-            registerButton.disabled = false;
-
-            registerButton.textContent =
-                "Kayıt Ol";
-
-        }
+        registerButton.disabled = false;
+        registerButton.textContent = "Kayıt Ol";
 
     }
-);
+
+});
 
 
 /* =========================================================
    ŞİFREMİ UNUTTUM
 ========================================================= */
 
-forgotButton.addEventListener(
-    "click",
-    async () => {
+forgotButton.addEventListener("click", async () => {
 
-        const email =
-            document.getElementById("loginEmail")
+    const email =
+        document
+            .getElementById("login-email")
             .value
             .trim();
 
 
-        if (!email) {
+    if (!email) {
 
-            showMessage(
-                "Önce e-posta adresini gir.",
-                "error"
-            );
+        showMessage(
+            "Önce e-posta adresini yaz.",
+            "error"
+        );
 
-            return;
-
-        }
-
-
-        forgotButton.disabled = true;
-
-        forgotButton.textContent =
-            "Gönderiliyor...";
-
-
-        const { error } =
-            await supabase.auth.resetPasswordForEmail(
-
-                email,
-
-                {
-
-                    redirectTo:
-                        window.location.origin +
-                        "/auth.html"
-
-                }
-
-            );
-
-
-        if (error) {
-
-            showMessage(
-                error.message,
-                "error"
-            );
-
-        } else {
-
-            showMessage(
-                "Şifre yenileme bağlantısı e-posta adresine gönderildi.",
-                "success"
-            );
-
-        }
-
-
-        forgotButton.disabled = false;
-
-        forgotButton.textContent =
-            "Şifremi Unuttum";
+        return;
 
     }
-);
 
 
-/* =========================================================
-   OTURUM KONTROLÜ
-========================================================= */
-
-async function updateAuthMenu() {
-
-    const {
-        data: { session }
-    } = await supabase.auth.getSession();
+    forgotButton.disabled = true;
 
 
-    if (!authNavLink) return;
+    const { error } =
+        await supabaseClient.auth.resetPasswordForEmail(
+            email,
+            {
+                redirectTo:
+                    window.location.origin +
+                    "/auth.html"
+            }
+        );
 
 
-    if (session) {
+    if (error) {
 
-        authNavLink.textContent =
-            "Profil";
-
-        authNavLink.href =
-            "profil.html";
+        showMessage(
+            error.message,
+            "error"
+        );
 
     } else {
 
-        authNavLink.textContent =
-            "Giriş Yap";
-
-        authNavLink.href =
-            "auth.html";
-
-    }
-
-}
-
-
-updateAuthMenu();
-
-
-supabase.auth.onAuthStateChange(
-    () => {
-
-        updateAuthMenu();
-
-    }
-);
-
-
-/* =========================================================
-   ZATEN GİRİŞ YAPILDIYSA
-========================================================= */
-
-async function checkCurrentSession() {
-
-    const {
-        data: { session }
-    } = await supabase.auth.getSession();
-
-
-    if (session) {
-
-        /*
-            Auth sayfasına tekrar gelirse
-            profil sayfasına gönder.
-        */
-
-        window.location.href =
-            "profil.html";
+        showMessage(
+            "Şifre yenileme bağlantısı e-posta adresine gönderildi.",
+            "success"
+        );
 
     }
 
-}
 
+    forgotButton.disabled = false;
 
-checkCurrentSession();
+});
 
 </script>
 
