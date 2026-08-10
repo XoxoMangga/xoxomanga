@@ -1,88 +1,35 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Profil | XOXO</title>
 
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: #1e1b20;
-            color: #f8eaf2;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            padding: 25px;
-            text-align: center;
-            border-bottom: 1px solid #403943;
-        }
-
-        h1 {
-            margin: 0;
-            color: #ed8fba;
-            letter-spacing: 3px;
-        }
-
-        nav {
-            margin-top: 18px;
-        }
-
-        nav a {
-            color: #f5dce9;
-            text-decoration: none;
-            margin: 0 12px;
-        }
-
-        main {
-            min-height: calc(100vh - 180px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .profile {
-            padding: 50px;
-        }
-
-        .angel {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: #ed8fba;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 15px;
-            border-top: 1px solid #403943;
-            color: #8f858e;
-            font-size: 13px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>XOXO</h1>
+<header class="site-header">
 
-    <nav>
+    <div class="logo">
+        XOXO
+    </div>
+
+    <nav class="main-nav">
         <a href="index.html">Ana Sayfa</a>
         <a href="manga.html">Manga</a>
         <a href="manhwa.html">Manhwa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="profil.html">Profil</a>
         <a href="auth.html">Giriş Yap</a>
     </nav>
+
 </header>
 
-<main>
+<main class="profile-page">
 
     <section class="profile">
 
@@ -90,17 +37,77 @@
             ✦ 🪽 ✦
         </div>
 
-        <h2>Profilim</h2>
+        <h1>Profilim</h1>
 
-        <p>Profil özellikleri yakında burada olacak.</p>
+        <p class="profile-email" id="profileEmail">
+            Kullanıcı bilgileri yükleniyor...
+        </p>
+
+        <button
+            class="logout-button"
+            id="logoutBtn"
+            type="button"
+        >
+            Çıkış Yap
+        </button>
 
     </section>
 
 </main>
 
-<footer>
-    © 2026 XOXO Manga. Tüm hakları saklıdır.
+<footer class="site-footer">
+    © 2026 XOXO Manga
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+    "https://gldvzlfuupettcauexfy.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_LQRuadaAeDNPSQAiSA32qA_ddQP5g1H";
+
+const db = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+async function loadProfile() {
+
+    const {
+        data: {
+            user
+        }
+    } = await db.auth.getUser();
+
+    if (!user) {
+        window.location.href = "auth.html";
+        return;
+    }
+
+    document.getElementById("profileEmail").textContent =
+        user.email || "E-posta bulunamadı.";
+}
+
+document
+    .getElementById("logoutBtn")
+    .addEventListener("click", async function () {
+
+        const { error } = await db.auth.signOut();
+
+        if (error) {
+            alert(error.message);
+            return;
+        }
+
+        window.location.href = "index.html";
+    });
+
+loadProfile();
+
+</script>
 
 </body>
 </html>
