@@ -915,3 +915,31 @@ footer {
     object-fit: cover;
     display: block;
 }
+/* Manhwa kartlarını yan yana diz */
+.manhwa-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+/* Kartların kendi içinde düzgün durması */
+.manhwa-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Kapak boyutu */
+.manhwa-cover {
+    width: 325px;
+    height: 488px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Telefonda tekrar alt alta */
+@media (max-width: 800px) {
+    .manhwa-page {
+        grid-template-columns: 1fr;
+    }
+}
