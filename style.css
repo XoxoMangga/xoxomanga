@@ -943,3 +943,33 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+.manhwa-page {
+    display: grid !important;
+    grid-template-columns: 325px 325px !important;
+    gap: 50px !important;
+    align-items: start !important;
+    justify-content: center !important;
+}
+
+.manhwa-page > .manhwa-card {
+    width: 325px !important;
+    margin: 0 !important;
+}
+
+.manhwa-page .manhwa-cover {
+    width: 325px !important;
+    height: 488px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+@media (max-width: 800px) {
+    .manhwa-page {
+        grid-template-columns: 1fr !important;
+    }
+
+    .manhwa-page > .manhwa-card {
+        width: 325px !important;
+        margin: 0 auto !important;
+    }
+}
