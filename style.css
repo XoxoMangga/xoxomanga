@@ -908,3 +908,10 @@ footer {
 .rating-stars button:hover {
   transform: scale(1.15);
 }
+.manhwa-card img.manhwa-cover {
+    width: 325px !important;
+    height: 488px !important;
+    max-width: 325px !important;
+    object-fit: cover;
+    display: block;
+}
