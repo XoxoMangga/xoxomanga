@@ -229,39 +229,7 @@ async function loadRating() {
     document.getElementById("ratingCount").textContent =
         `(${data.length} oy)`;
 }
-document.querySelectorAll(".rating-stars button").forEach(button => {
-    button.addEventListener("click", async () => {
 
-        const rating = Number(button.dataset.rating);
-
-        const { data: { user } } = await supabase.auth.getUser();
-
-        if (!user) {
-            document.getElementById("ratingMessage").textContent =
-                "Oy vermek için giriş yapmalısın.";
-            return;
-        }
-
-        const { error } = await supabase
-            .from("ratings")
-            .insert({
-                user_id: user.id,
-                manga_id: mangaId,
-                rating: rating
-            });
-
-        if (error) {
-            console.error(error);
-            document.getElementById("ratingMessage").textContent =
-                "Oy verirken bir hata oluştu.";
-            return;
-        }
-
-        document.getElementById("ratingMessage").textContent =
-            "Oyun kaydedildi! ⭐";
-
-        loadRating();
-    });
 });
 loadRating();
 </script>
