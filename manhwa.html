@@ -74,23 +74,28 @@
             <h1>Wish Upon a Star</h1>
 
             <p class="manhwa-type">Manhwa</p>
+<div class="rating-box">
 
-            <div class="rating">
-                <span>⭐</span>
-                <strong>0.0</strong>
-                <span>/ 5</span>
-                <small>(Henüz oy yok)</small>
-            </div>
+    <div class="rating-summary">
+        <span class="rating-star">⭐</span>
+        <strong id="averageRating">0.0</strong>
+        <span>/ 5</span>
+        <small id="ratingCount">(Henüz oy yok)</small>
+    </div>
 
-            <p class="manhwa-description">
-                Wish Upon a Star
-            </p>
+    <p>Bu manhwaya puan ver:</p>
 
-            <a href="#" class="read-button">
-                Bölüm 1'e Başla
-            </a>
+    <div class="rating-stars">
+        <button type="button" data-rating="1">☆</button>
+        <button type="button" data-rating="2">☆</button>
+        <button type="button" data-rating="3">☆</button>
+        <button type="button" data-rating="4">☆</button>
+        <button type="button" data-rating="5">☆</button>
+    </div>
 
-        </div>
+    <p id="ratingMessage"></p>
+
+</div>
 
 </section>
 </main>
@@ -159,6 +164,106 @@ supabase.auth.onAuthStateChange(() => {
 
 </script>
 
+<script>
+const mangaId = "wish-upon-a-star";
 
+const ratingButtons = document.querySelectorAll(".rating-stars button");
+const ratingMessage = document.getElementById("ratingMessage");
+
+ratingButtons.forEach(button => {
+    button.addEventListener("click", async () => {
+
+        const rating = Number(button.dataset.rating);
+
+        const {
+            data: { user }
+        } = await supabase.auth.getUser();
+
+        if (!user) {
+            ratingMessage.textContent = "Oy vermek için giriş yapmalısın.";
+            return;
+        }
+
+        const { error } = await supabase
+            .from("ratings")
+            .insert({
+                user_id: user.id,
+                manga_id: mangaId,
+                rating: rating
+            });
+
+        if (error) {
+            console.error(error);
+            ratingMessage.textContent = "Oy verirken bir hata oluştu.";
+            return;
+        }
+
+        ratingMessage.textContent = "Oyun kaydedildi! ⭐";
+        loadRating();
+    });
+});
+
+
+async function loadRating() {
+
+    const { data, error } = await supabase
+        .from("ratings")
+        .select("rating")
+        .eq("manga_id", mangaId);
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        document.getElementById("averageRating").textContent = "0.0";
+        document.getElementById("ratingCount").textContent = "(Henüz oy yok)";
+        return;
+    }
+
+    const total = data.reduce((sum, item) => sum + item.rating, 0);
+    const average = (total / data.length).toFixed(1);
+
+    document.getElementById("averageRating").textContent = average;
+    document.getElementById("ratingCount").textContent =
+        `(${data.length} oy)`;
+}
+document.querySelectorAll(".rating-stars button").forEach(button => {
+    button.addEventListener("click", async () => {
+
+        const rating = Number(button.dataset.rating);
+
+        const { data: { user } } = await supabase.auth.getUser();
+
+        if (!user) {
+            document.getElementById("ratingMessage").textContent =
+                "Oy vermek için giriş yapmalısın.";
+            return;
+        }
+
+        const { error } = await supabase
+            .from("ratings")
+            .insert({
+                user_id: user.id,
+                manga_id: mangaId,
+                rating: rating
+            });
+
+        if (error) {
+            console.error(error);
+            document.getElementById("ratingMessage").textContent =
+                "Oy verirken bir hata oluştu.";
+            return;
+        }
+
+        document.getElementById("ratingMessage").textContent =
+            "Oyun kaydedildi! ⭐";
+
+        loadRating();
+    });
+});
+loadRating();
+</script>
 </body>
 </html>
