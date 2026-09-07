@@ -159,7 +159,28 @@
 
 
                     <p id="ratingMessageMyFirstLove"></p>
+<div class="comments-box">
 
+    <h2>Yorumlar</h2>
+
+    <textarea
+        id="commentInputMyFirstLove"
+        placeholder="Yorumunu yaz..."
+        maxlength="1000"
+    ></textarea>
+
+    <button
+        type="button"
+        id="commentButtonMyFirstLove"
+    >
+        Yorum Yap
+    </button>
+
+    <div id="commentsListMyFirstLove">
+        <p>Yorumlar yükleniyor...</p>
+    </div>
+
+</div>
                 </div>
 
             </div>
@@ -217,7 +238,28 @@
                         <small id="ratingCountWishUponAStar">
                             (Henüz oy yok)
                         </small>
+<div class="comments-box">
 
+    <h2>Yorumlar</h2>
+
+    <textarea
+        id="commentInputWishUponAStar"
+        placeholder="Yorumunu yaz..."
+        maxlength="1000"
+    ></textarea>
+
+    <button
+        type="button"
+        id="commentButtonWishUponAStar"
+    >
+        Yorum Yap
+    </button>
+
+    <div id="commentsListWishUponAStar">
+        <p>Yorumlar yükleniyor...</p>
+    </div>
+
+</div>
                     </div>
 
 
@@ -607,7 +649,148 @@
         setupRating
     );
 
+const commentConfigs = [
+    {
+        mangaId: "my-first-love",
+        inputId: "commentInputMyFirstLove",
+        buttonId: "commentButtonMyFirstLove",
+        listId: "commentsListMyFirstLove"
+    },
+    {
+        mangaId: "wish-upon-a-star",
+        inputId: "commentInputWishUponAStar",
+        buttonId: "commentButtonWishUponAStar",
+        listId: "commentsListWishUponAStar"
+    }
+];
 
+
+async function loadComments(config) {
+
+    const list =
+        document.getElementById(config.listId);
+
+    const { data, error } = await supabase
+        .from("comments")
+        .select("id, user_id, comment, created_at")
+        .eq("manga_id", config.mangaId)
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error(error);
+        list.innerHTML =
+            "<p>Yorumlar yüklenemedi.</p>";
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        list.innerHTML =
+            "<p>Henüz yorum yok. İlk yorumu sen yap! ♡</p>";
+        return;
+    }
+
+    list.innerHTML = "";
+
+    data.forEach(item => {
+
+        const comment = document.createElement("div");
+
+        comment.className = "comment-item";
+
+        comment.innerHTML = `
+            <strong>Kullanıcı</strong>
+            <small>
+                ${new Date(item.created_at).toLocaleDateString("tr-TR")}
+            </small>
+            <p></p>
+        `;
+
+        comment.querySelector("p").textContent =
+            item.comment;
+
+        list.appendChild(comment);
+
+    });
+}
+
+
+function setupComments(config) {
+
+    const input =
+        document.getElementById(config.inputId);
+
+    const button =
+        document.getElementById(config.buttonId);
+
+
+    button.addEventListener("click", async () => {
+
+        const text = input.value.trim();
+
+        if (!text) {
+            alert("Önce yorumunu yaz.");
+            return;
+        }
+
+
+        const {
+            data: { user }
+        } = await supabase.auth.getUser();
+
+
+        if (!user) {
+
+            alert(
+                "Yorum yapmak için giriş yapmalısın."
+            );
+
+            return;
+        }
+
+
+        button.disabled = true;
+        button.textContent = "Gönderiliyor...";
+
+
+        const { error } = await supabase
+            .from("comments")
+            .insert({
+                user_id: user.id,
+                manga_id: config.mangaId,
+                comment: text
+            });
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Yorum gönderilirken bir hata oluştu."
+            );
+
+        } else {
+
+            input.value = "";
+
+            await loadComments(config);
+
+        }
+
+
+        button.disabled = false;
+        button.textContent = "Yorum Yap";
+
+    });
+
+
+    loadComments(config);
+}
+
+
+commentConfigs.forEach(
+    setupComments
+);
 </script>
 
 
